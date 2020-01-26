@@ -1,0 +1,38 @@
+.header {
+  background-color: #f5870d;
+  height: 40px;
+}
+
+.menu-item {
+  margin-right: 20px;
+  text-decoration: none;
+  float: left;
+}
+
+.menu-item:hover {
+  text-decoration: none;
+}
+
+.menu-item div,
+img {
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  float: left;
+}
+
+.menu-item span:hover {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-item.active .menu-selector {
+  background-color: white;
+  border-radius: 0px 0px 3px 3px;
+}
+
+.menu-selector {
+  height: 5px;
+  width: 100%;
+}
