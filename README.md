@@ -1,4 +1,6 @@
 # react-dccs-starter-kit
+
 Starter kit for beginners in React
 
-Hello World
+Step 1:
+npx create-react-app react-dccs-starter-kit
