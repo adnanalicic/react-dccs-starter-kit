@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import StartPage from "./views/StartPage";
 import ManagePage from "./views/ManagePage";
-import OverviewPage from "./views/OverviewPage";
+import OverviewPage from "./views/overview/OverviewPage";
 
 export default class App extends React.Component {
   render() {
