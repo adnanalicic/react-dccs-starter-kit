@@ -22,9 +22,9 @@
     }
   ],
   "employees": [
-    { "id": 1, "name": "Adan Agić" },
-    { "id": 2, "name": "Elbin Hasić" },
-    { "id": 3, "name": "Mahir Nukić" }
+    { "id": 1, "value": "Adan Agić" },
+    { "id": 2, "value": "Elbin Hasić" },
+    { "id": 3, "value": "Mahir Nukić" }
   ],
   "equipmentType": [
     {

@@ -4,7 +4,7 @@ class EquipmentService {
   EMPLOYEES_SERVICE = "http://localhost:3001/employees";
   EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentType";
 
-  fetchEquipment(callback) {
+  fetchEquipment(callback, filter) {
     return Promise.all([
       fetch(this.EQUIPMENT_SERVICE).then(data => data.json()),
       fetch(this.MANUFACTORS_SERVICE).then(data => data.json()),
@@ -12,8 +12,14 @@ class EquipmentService {
       fetch(this.EQUIPMENTTYPE_SERVICE).then(data => data.json())
     ]).then(result => {
       let equipment = result[0];
+      if (filter && filter.employee) {
+        equipment = equipment.filter(el => {
+          return el.employee === filter.employee;
+        });
+      }
+
       let manufactors = new Map(result[1].map(i => [i.id.toString(), i.value]));
-      let employees = new Map(result[2].map(i => [i.id.toString(), i.name]));
+      let employees = new Map(result[2].map(i => [i.id.toString(), i.value]));
       let equipmentType = new Map(
         result[3].map(i => [i.id.toString(), i.value])
       );
