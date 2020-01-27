@@ -12,11 +12,11 @@ export default class Header extends React.Component {
         </NavLink>
         <NavLink className="menu-item" exact to="/edit">
           <div className="menu-selector"></div>
-          <div>Manage</div>
+          <div className="menu-text">Manage</div>
         </NavLink>
         <NavLink className="menu-item" exact to="/overview">
           <div className="menu-selector"></div>
-          <div>Overview</div>
+          <div className="menu-text">Overview</div>
         </NavLink>
       </div>
     );

@@ -1,0 +1,69 @@
+{
+  "equipment": [
+    {
+      "id": "1",
+      "employee": "2",
+      "equipmentType": "1",
+      "manufactor": "1",
+      "model": "T440p",
+      "serialNumber": "S12345678",
+      "invoiceDate": "19.03.2019",
+      "guarantee": "19.03.2022"
+    },
+    {
+      "id": "2",
+      "employee": "1",
+      "equipmentType": "2",
+      "manufactor": "2",
+      "model": "27'",
+      "serialNumber": "S99999999",
+      "invoiceDate": "19.05.2018",
+      "guarantee": "19.05.2021"
+    }
+  ],
+  "employees": [
+    { "id": 1, "name": "Adan Agić" },
+    { "id": 2, "name": "Elbin Hasić" },
+    { "id": 3, "name": "Mahir Nukić" }
+  ],
+  "equipmentType": [
+    {
+      "id": 1,
+      "value": "Laptop"
+    },
+    {
+      "id": 2,
+      "value": "Docking station"
+    },
+    {
+      "id": 3,
+      "value": "Monitor"
+    },
+    {
+      "id": 4,
+      "value": "Keyboard"
+    },
+    {
+      "id": 5,
+      "value": "Mouse"
+    },
+    {
+      "id": 6,
+      "value": "Headset"
+    },
+    {
+      "id": 7,
+      "value": "Memory"
+    }
+  ],
+  "manufactors": [
+    {
+      "id": 1,
+      "value": "Lenovo"
+    },
+    {
+      "id": 2,
+      "value": "Dell"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 .header {
   background-color: #f5870d;
-  height: 40px;
+  height: 45px;
 }
 
 .menu-item {
@@ -27,6 +27,10 @@ img {
   text-decoration: none;
 }
 
+.menu-item.active .menu-text {
+  font-weight: bolder;
+}
+
 .menu-item.active .menu-selector {
   background-color: white;
   border-radius: 0px 0px 3px 3px;
@@ -35,4 +39,14 @@ img {
 .menu-selector {
   height: 5px;
   width: 100%;
+}
+
+.menu-text {
+  padding-top: 10px;
+  font-size: 13px;
+  font-family: "PT Sans", "arial", sans-serif;
+}
+
+.logo {
+  padding-top: 5px;
 }
