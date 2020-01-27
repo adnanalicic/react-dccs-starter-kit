@@ -1,12 +1,13 @@
 # react-dccs-starter-kit
 
-Starter kit for beginners in React
+## Lecture 1:
 
-Step 1:
-npx create-react-app react-dccs-starter-kit
+This showcase has following functionalities:
 
-npm install
+- implementation of components like header, menu items, empty pages
+- implementation react router
+- mock rest api based on JSON Server
 
-npm start
-
-cleaned few files
+<h4>Application layout</h4><img src="documentation/images/application_structure.png" width="800">
+<h4>API overview</h4><img src="documentation/images/admin_mock_api.png" width="800">
+<h4>Example of employees API</h4><img src="documentation/images/mock_api_example.png" width="800">
