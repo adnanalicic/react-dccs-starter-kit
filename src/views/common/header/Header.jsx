@@ -10,7 +10,7 @@ export default class Header extends React.Component {
         <NavLink className="menu-item" exact to="/">
           <img src={logo} height="30px" className="logo" alt="" />
         </NavLink>
-        <NavLink className="menu-item" exact to="/edit">
+        <NavLink className="menu-item" exact to="/manage">
           <div className="menu-selector"></div>
           <div className="menu-text">Manage</div>
         </NavLink>

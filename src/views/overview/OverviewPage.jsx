@@ -1,6 +1,6 @@
 import React from "react";
 import equipmentService from "../common/service/EquipmentService";
-import EquipmentTable from "./EquipmentTable";
+import EquipmentTable from "./equipmenttable/EquipmentTable";
 import "./overviewpage.css";
 
 export default class OverviewPage extends React.Component {

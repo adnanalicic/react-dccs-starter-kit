@@ -1,6 +1,6 @@
 import React from "react";
-import EquipmentContainer from "./EquipmentTableRow";
-import DynamicSelect from "../common/select/DynamicSelect";
+import EquipmentTableRow from "./EquipmentTableRow";
+import DynamicSelect from "../../common/select/DynamicSelect";
 
 export default class EquipmentTable extends React.Component {
   state = {
@@ -52,7 +52,13 @@ export default class EquipmentTable extends React.Component {
                     onChange={this.filterTable}
                   />
                 </td>
-                <td>Manufactor</td>
+                <td>
+                  <span>Manufactor</span>
+                  <DynamicSelect
+                    name="manufactor"
+                    onChange={this.filterTable}
+                  />
+                </td>
                 <td>Model</td>
                 <td>Serial number</td>
                 <td>Invoice date</td>
@@ -61,7 +67,7 @@ export default class EquipmentTable extends React.Component {
             </thead>
             <tbody>
               {this.state.equipment.map(item => (
-                <EquipmentContainer key={item.id} item={item} />
+                <EquipmentTableRow key={item.id} item={item} />
               ))}
             </tbody>
           </table>

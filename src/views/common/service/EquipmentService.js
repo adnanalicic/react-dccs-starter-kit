@@ -31,7 +31,6 @@ class EquipmentService {
         el.equipmentType = equipmentType.get(el["equipmentType"]);
         return el;
       });
-      //TODO: check this
       return equipment;
     });
   }

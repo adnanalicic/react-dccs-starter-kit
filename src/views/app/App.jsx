@@ -14,7 +14,7 @@ export default class App extends React.Component {
           <Header />
           <Switch>
             <Route path="/" exact component={StartPage} />
-            <Route path="/edit" component={ManagePage} />
+            <Route path="/manage" component={ManagePage} />
             <Route path="/overview" component={OverviewPage} />
           </Switch>
         </HashRouter>

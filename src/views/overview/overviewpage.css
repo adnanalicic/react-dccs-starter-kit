@@ -11,6 +11,10 @@
   box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.05);
 }
 
+.overview-table thead tr {
+  font-weight: 700;
+}
+
 .overview-table tr {
   height: 35px;
   font-weight: 300;
