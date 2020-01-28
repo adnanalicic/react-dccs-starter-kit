@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "./logo_dccs_white.png";
+import logo from "../../../assets/logo_dccs_white.png";
 import "./Header.css";
 
 export default class Header extends React.Component {

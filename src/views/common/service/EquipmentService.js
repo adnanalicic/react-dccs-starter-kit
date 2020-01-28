@@ -1,7 +1,7 @@
 class EquipmentService {
   EQUIPMENT_SERVICE = "http://localhost:3001/equipment";
-  MANUFACTORS_SERVICE = "http://localhost:3001/manufactors";
-  EMPLOYEES_SERVICE = "http://localhost:3001/employees";
+  MANUFACTORS_SERVICE = "http://localhost:3001/manufactor";
+  EMPLOYEES_SERVICE = "http://localhost:3001/employee";
   EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentType";
 
   fetchEquipment(callback, filter) {
@@ -12,9 +12,10 @@ class EquipmentService {
       fetch(this.EQUIPMENTTYPE_SERVICE).then(data => data.json())
     ]).then(result => {
       let equipment = result[0];
-      if (filter && filter.employee) {
+      if (filter) {
+        console.log("filter");
         equipment = equipment.filter(el => {
-          return el.employee === filter.employee;
+          return el[filter["key"]] === filter["value"];
         });
       }
 
@@ -30,10 +31,10 @@ class EquipmentService {
         el.equipmentType = equipmentType.get(el["equipmentType"]);
         return el;
       });
-
-      callback(equipment);
+      //TODO: check this
+      return equipment;
     });
   }
 }
 
-export default EquipmentService;
+export default new EquipmentService();

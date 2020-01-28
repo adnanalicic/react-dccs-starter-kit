@@ -7,9 +7,6 @@ export default class DynamicSelect extends React.Component {
   constructor(params) {
     super(params);
     this.updateStateAction = this.updateStateAction.bind(this);
-  }
-
-  componentDidMount() {
     masterDataService.fetchData(this.props.name, this.updateStateAction);
   }
 
@@ -32,10 +29,7 @@ export default class DynamicSelect extends React.Component {
           value={this.props.value}
           name={this.props.name}
         >
-          <option selected value>
-            {" "}
-            -- select an option --{" "}
-          </option>
+          <option value="DEFAULT">please select</option>
           {options}
         </select>
       </div>
