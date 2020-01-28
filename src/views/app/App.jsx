@@ -12,11 +12,13 @@ export default class App extends React.Component {
       <div className="App">
         <HashRouter>
           <Header />
-          <Switch>
-            <Route path="/" exact component={StartPage} />
-            <Route path="/manage" component={ManagePage} />
-            <Route path="/overview" component={OverviewPage} />
-          </Switch>
+          <div className="page-container">
+            <Switch>
+              <Route path="/" exact component={StartPage} />
+              <Route path="/manage" component={ManagePage} />
+              <Route path="/overview" component={OverviewPage} />
+            </Switch>
+          </div>
         </HashRouter>
       </div>
     );

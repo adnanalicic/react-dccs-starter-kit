@@ -36,43 +36,33 @@ export default class EquipmentTable extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="page-container">
-          <table className="overview-table">
-            <thead>
-              <tr>
-                <td>
-                  <span>Name</span>
-                  <DynamicSelect name="employee" onChange={this.filterTable} />
-                </td>
-                <td>
-                  <span>Type</span>
-                  <DynamicSelect
-                    name="equipmentType"
-                    onChange={this.filterTable}
-                  />
-                </td>
-                <td>
-                  <span>Manufactor</span>
-                  <DynamicSelect
-                    name="manufactor"
-                    onChange={this.filterTable}
-                  />
-                </td>
-                <td>Model</td>
-                <td>Serial number</td>
-                <td>Invoice date</td>
-                <td>Warranty</td>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.equipment.map(item => (
-                <EquipmentTableRow key={item.id} item={item} />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table className="equipment-table">
+        <thead>
+          <tr>
+            <td>
+              <span>Name</span>
+              <DynamicSelect name="employee" onChange={this.filterTable} />
+            </td>
+            <td>
+              <span>Type</span>
+              <DynamicSelect name="equipmentType" onChange={this.filterTable} />
+            </td>
+            <td>
+              <span>Manufactor</span>
+              <DynamicSelect name="manufactor" onChange={this.filterTable} />
+            </td>
+            <td>Model</td>
+            <td>Serial number</td>
+            <td>Invoice date</td>
+            <td>Warranty</td>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.equipment.map(item => (
+            <EquipmentTableRow key={item.id} item={item} />
+          ))}
+        </tbody>
+      </table>
     );
   }
 }
