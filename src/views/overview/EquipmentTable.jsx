@@ -1,5 +1,5 @@
 import React from "react";
-import EquipmentContainer from "./EquipmentContainer";
+import EquipmentContainer from "./EquipmentTableRow";
 import DynamicSelect from "../common/select/DynamicSelect";
 
 export default class EquipmentTable extends React.Component {
@@ -38,29 +38,33 @@ export default class EquipmentTable extends React.Component {
     return (
       <div>
         <div className="page-container">
-          <div>
-            <div className="overview-table-header">
-              <div className="overview-table-cell">
-                Name
-                <DynamicSelect name="employee" onChange={this.filterTable} />
-              </div>
-              <div className="overview-table-cell">
-                Type
-                <DynamicSelect
-                  name="equipmentType"
-                  onChange={this.filterTable}
-                />
-              </div>
-              <div className="overview-table-cell">Manufactor</div>
-              <div className="overview-table-cell">Model</div>
-              <div className="overview-table-cell">Serial number</div>
-              <div className="overview-table-cell">Invoice date</div>
-              <div className="overview-table-cell">Warranty</div>
-            </div>
-            {this.state.equipment.map(item => (
-              <EquipmentContainer key={item.id} item={item} />
-            ))}
-          </div>
+          <table className="overview-table">
+            <thead>
+              <tr>
+                <td>
+                  <span>Name</span>
+                  <DynamicSelect name="employee" onChange={this.filterTable} />
+                </td>
+                <td>
+                  <span>Type</span>
+                  <DynamicSelect
+                    name="equipmentType"
+                    onChange={this.filterTable}
+                  />
+                </td>
+                <td>Manufactor</td>
+                <td>Model</td>
+                <td>Serial number</td>
+                <td>Invoice date</td>
+                <td>Warranty</td>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.equipment.map(item => (
+                <EquipmentContainer key={item.id} item={item} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );
