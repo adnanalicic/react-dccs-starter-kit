@@ -13,7 +13,7 @@ import OverviewPage from "../overview/OverviewPage";
 export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <HashRouter>
           <Header />
           {/* FIXME: classNames and all others should be consistent...*/}

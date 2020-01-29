@@ -40,7 +40,7 @@ export default class EquipmentTable extends React.Component {
 
   render() {
     return (
-      <table className="equipment-table">
+      <table className="equipmentTable">
         <thead>
           <tr>
             <td>

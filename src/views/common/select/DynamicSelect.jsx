@@ -24,7 +24,7 @@ export default class DynamicSelect extends React.Component {
     return (
       <div>
         <select
-          className="dynamic-select"
+          className="dynamicSelect"
           onChange={this.props.onChange}
           value={this.props.value}
           name={this.props.name}

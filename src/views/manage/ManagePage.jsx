@@ -89,7 +89,7 @@ export default class ManageEquipmentPage extends React.Component {
     // FIXME: ~100 lines needed only for JSX stuff... hmmm let's discuss
 
     return (
-      <div className="form-container">
+      <div className="formContainer">
         <table>
           <tbody>
             <tr>

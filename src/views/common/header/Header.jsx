@@ -8,7 +8,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <NavLink className="menu-item" exact to="/">
+        <NavLink className="menuItem" exact to="/">
           <img src={logo} height="30px" className="logo" alt="" />
         </NavLink>
         {/* FIXME: How do we know which item is active ? Anyway it would be nice if We have following configuration of menu:
@@ -24,15 +24,15 @@ export default class Header extends React.Component {
         </div>
 
         */}
-        <NavLink className="menu-item" exact to="/manage">
+        <NavLink className="menuItem" exact to="/manage">
           {/* FIXME: Looks like we don't need empty div ? Another question is what should be clickable whole area or only text? */}
-          <div className="menu-selector"></div>
+          <div className="menuSelector"></div>
           {/* FIXME: Should we think to collect translations at least into single file... */}
-          <div className="menu-text">Manage</div>
+          <div className="menuText">Manage</div>
         </NavLink>
-        <NavLink className="menu-item" exact to="/overview">
-          <div className="menu-selector"></div>
-          <div className="menu-text">Overview</div>
+        <NavLink className="menuItem" exact to="/overview">
+          <div className="menuSelector"></div>
+          <div className="menuText">Overview</div>
         </NavLink>
       </div>
     );

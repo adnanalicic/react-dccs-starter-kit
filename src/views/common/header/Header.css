@@ -3,17 +3,17 @@
   height: 45px;
 }
 
-.menu-item {
+.menuItem {
   margin-right: 20px;
   text-decoration: none;
   float: left;
 }
 
-.menu-item:hover {
+.menuItem:hover {
   text-decoration: none;
 }
 
-.menu-item div,
+.menuItem div,
 img {
   color: white;
   font-weight: 300;
@@ -21,27 +21,27 @@ img {
   float: left;
 }
 
-.menu-item span:hover {
+.menuItem span:hover {
   cursor: pointer;
   color: white;
   text-decoration: none;
 }
 
-.menu-item.active .menu-text {
+.menuItem.active .menuText {
   font-weight: bolder;
 }
 
-.menu-item.active .menu-selector {
+.menuItem.active .menuSelector {
   background-color: white;
   border-radius: 0px 0px 3px 3px;
 }
 
-.menu-selector {
+.menuSelector {
   height: 5px;
   width: 100%;
 }
 
-.menu-text {
+.menuText {
   padding-top: 10px;
   font-size: 13px;
   font-family: "PT Sans", "arial", sans-serif;
