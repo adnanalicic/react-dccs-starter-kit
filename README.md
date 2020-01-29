@@ -1,7 +1,5 @@
 # react-dccs-starter-kit
 
-## Lecture 2:
+## Lecture 5:
 
-This showcase has following functionalities:
-
-- fetches equipment data from server and display it in a grid
+TBD
