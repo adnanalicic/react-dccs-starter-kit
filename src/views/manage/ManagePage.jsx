@@ -1,6 +1,7 @@
 import React from "react";
 import DynamicSelect from "../common/select/DynamicSelect";
 import equipmentService from "../common/service/EquipmentService";
+
 import "./ManagePage.css";
 
 export default class ManageEquipmentPage extends React.Component {

@@ -1,10 +1,11 @@
 import React from "react";
-import "./App.css";
-import Header from "../common/header/Header";
 import { Switch, Route, HashRouter } from "react-router-dom";
+import Header from "../common/header/Header";
 import StartPage from "../start/StartPage";
 import ManagePage from "../manage/ManagePage";
 import OverviewPage from "../overview/OverviewPage";
+
+import "./App.css";
 
 // FIXME: import ordering ? Should we at least put at list distinguish local and external imports, js and css.
 

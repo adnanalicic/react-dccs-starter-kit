@@ -6,7 +6,9 @@ Decisions
 
 1. css class names should be camelCase
 2. import ordering
-   //TODO: Aldin define it
+   - external libs
+   - internal modules
+   - css
 3. FIXME: Should we document all exported classes, functions ? What about public methods ?
 4. FIXME: Should we make some DesignDecisions regarding naming (Some suffixes would be nice...e.g. Component, Service, Store,...whatever) ?
 5. FIXME: Should we use Component if we're not using any method from lifecycle ?

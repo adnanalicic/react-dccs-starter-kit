@@ -1,6 +1,7 @@
 import React from "react";
 import equipmentService from "../common/service/EquipmentService";
 import EquipmentTable from "./equipmenttable/EquipmentTable";
+
 import "./overviewpage.css";
 
 // FIXME: some file names are starting with lower and other with upper case...

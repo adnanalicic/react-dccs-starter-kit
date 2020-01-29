@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../../assets/logo_dccs_white.png";
+
 import "./Header.css";
+import logo from "../../../assets/logo_dccs_white.png";
 
 // FIXME: Should we use Component if we're not using any method from lifecycle ?
 export default class Header extends React.Component {
