@@ -18,8 +18,7 @@ input {
   height: 43px;
 }
 
-.form-container input,
-button {
+.form-container input {
   width: 100%;
   height: 33px;
 }
@@ -36,4 +35,11 @@ button {
 }
 .form-container td div {
   text-align: left;
+}
+
+.button {
+  width: 30% !important;
+  margin-right: 10px;
+  height: 33px;
+  float: left;
 }

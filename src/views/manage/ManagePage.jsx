@@ -79,7 +79,7 @@ export default class ManageEquipmentPage extends React.Component {
           type="button"
           value="Delete"
           onClick={this.deleteEquipmentItemAction}
-          className="button-grey"
+          className="button"
         />
       );
     }
@@ -88,6 +88,17 @@ export default class ManageEquipmentPage extends React.Component {
       <div className="form-container">
         <table>
           <tbody>
+            <tr>
+              <td>
+                <input
+                  type="button"
+                  value="Save"
+                  onClick={this.saveEquipmentItemAction}
+                  className="button"
+                />
+                {deleteButton}
+              </td>
+            </tr>
             <tr>
               <td>
                 <span>Employee:</span>
@@ -160,17 +171,6 @@ export default class ManageEquipmentPage extends React.Component {
                   className="textfield"
                 />
               </td>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  type="button"
-                  value="Save"
-                  onClick={this.saveEquipmentItemAction}
-                  className="button"
-                />
-              </td>
-              <td>{deleteButton}</td>
             </tr>
           </tbody>
         </table>
