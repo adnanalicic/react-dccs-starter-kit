@@ -19,12 +19,83 @@
       "serialNumber": "S99999999",
       "invoiceDate": "19.05.2018",
       "guarantee": "19.05.2021"
+    },
+    {
+      "id": "sRNMWr2",
+      "employees": "",
+      "equipmentType": "3",
+      "manufactor": "1",
+      "serialNumber": "4334343434",
+      "model": "43434",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021",
+      "employee": "2"
+    },
+    {
+      "id": "19v7Ixq",
+      "employees": "",
+      "equipmentType": "2",
+      "manufactor": "1",
+      "serialNumber": "erfefr",
+      "model": "erfe",
+      "invoiceDate": "erfefef",
+      "guarantee": "3",
+      "employee": "2"
+    },
+    {
+      "id": "nTOO42u",
+      "employee": "1",
+      "equipmentType": "1",
+      "manufactor": "1",
+      "serialNumber": "wedwed",
+      "model": "1234",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    },
+    {
+      "id": "UMK52Lx",
+      "employee": "1",
+      "equipmentType": "2",
+      "manufactor": "2",
+      "serialNumber": "fgbfgb",
+      "model": "fgb",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    },
+    {
+      "id": "cs9bPBd",
+      "employee": "3",
+      "equipmentType": "3",
+      "manufactor": "1",
+      "serialNumber": "vfvfgv",
+      "model": "34",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    },
+    {
+      "id": "Deae5Xp",
+      "employee": "3",
+      "equipmentType": "2",
+      "manufactor": "1",
+      "serialNumber": "dfvd",
+      "model": "dfvd",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
     }
   ],
   "employee": [
-    { "id": 1, "value": "Adan Agić" },
-    { "id": 2, "value": "Elbin Hasić" },
-    { "id": 3, "value": "Mahir Nukić" }
+    {
+      "id": 1,
+      "value": "Adan Agić"
+    },
+    {
+      "id": 2,
+      "value": "Elbin Hasić"
+    },
+    {
+      "id": 3,
+      "value": "Mahir Nukić"
+    }
   ],
   "equipmentType": [
     {

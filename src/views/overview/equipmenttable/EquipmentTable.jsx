@@ -11,16 +11,20 @@ export default class EquipmentTable extends React.Component {
 
   filterTable = event => {
     let filters = this.state.filters;
-    filters[event.target.name] = event.target.value;
+    debugger;
+    filters[event.target.name] =
+      event.target.options[event.target.selectedIndex].text;
     this.setState({ ...this.state, filters: filters });
 
     let data = this.state.fullData;
     for (let filterName in filters) {
-      if (filters[filterName] === "DEFAULT") {
+      if (
+        filters[filterName] === "DEFAULT" ||
+        filters[filterName] === "please select"
+      ) {
         continue;
       }
       data = data.filter(function(equipmentItem) {
-        debugger;
         return equipmentItem[filterName] === filters[filterName];
       });
     }
@@ -39,6 +43,9 @@ export default class EquipmentTable extends React.Component {
       <table className="equipment-table">
         <thead>
           <tr>
+            <td>
+              <span></span>
+            </td>
             <td>
               <span>Name</span>
               <DynamicSelect name="employee" onChange={this.filterTable} />
@@ -59,7 +66,11 @@ export default class EquipmentTable extends React.Component {
         </thead>
         <tbody>
           {this.state.equipment.map(item => (
-            <EquipmentTableRow key={item.id} item={item} />
+            <EquipmentTableRow
+              editAction={this.props.editAction}
+              key={item.id}
+              item={item}
+            />
           ))}
         </tbody>
       </table>

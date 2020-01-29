@@ -19,7 +19,16 @@ export default class OverviewPage extends React.Component {
     this.setState({ ...this.state, equipment: data });
   };
 
+  editEquipmentAction = id => {
+    this.props.history.push("/manage/" + id);
+  };
+
   render() {
-    return <EquipmentTable data={this.state.equipment} />;
+    return (
+      <EquipmentTable
+        editAction={this.editEquipmentAction}
+        data={this.state.equipment}
+      />
+    );
   }
 }

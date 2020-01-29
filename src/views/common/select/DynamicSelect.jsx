@@ -16,7 +16,7 @@ export default class DynamicSelect extends React.Component {
 
   render() {
     let options = this.state.items.map(data => (
-      <option value={data.value} key={data.id}>
+      <option value={data.id} key={data.id}>
         {data.value}
       </option>
     ));
