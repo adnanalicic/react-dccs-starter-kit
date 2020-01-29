@@ -44,6 +44,13 @@ export default class ManageEquipmentPage extends React.Component {
     });
   };
 
+  deleteEquipmentItemAction = event => {
+    equipmentService.deleteEquipmentItem(this.state.equipment).then(() => {
+      this.props.history.push("/overview");
+      alert("data deleted");
+    });
+  };
+
   render() {
     return (
       <div className="form-container">
@@ -135,9 +142,7 @@ export default class ManageEquipmentPage extends React.Component {
                 <input
                   type="button"
                   value="Delete"
-                  onClick={event =>
-                    equipmentService.deleteEquipmentItem(this.state.equipment)
-                  }
+                  onClick={this.deleteEquipmentItemAction}
                   className="button-grey"
                 />
               </td>

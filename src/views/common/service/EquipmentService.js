@@ -39,7 +39,11 @@ class EquipmentService {
     });
   }
   deleteEquipmentItem(equipment) {
-    alert("deleteEquipmentItem");
+    return fetch(this.EQUIPMENT_SERVICE + "/" + equipment.id, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(equipment)
+    });
   }
 }
 

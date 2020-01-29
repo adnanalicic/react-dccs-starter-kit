@@ -1,37 +1,6 @@
 {
   "equipment": [
     {
-      "id": "1",
-      "employee": "2",
-      "equipmentType": "1",
-      "manufactor": "1",
-      "model": "T440p",
-      "serialNumber": "S12345678",
-      "invoiceDate": "19.03.2019",
-      "guarantee": "19.03.2022"
-    },
-    {
-      "id": "2",
-      "employee": "1",
-      "equipmentType": "2",
-      "manufactor": "2",
-      "model": "27'",
-      "serialNumber": "S99999999",
-      "invoiceDate": "19.05.2018",
-      "guarantee": "19.05.2021"
-    },
-    {
-      "id": "sRNMWr2",
-      "employees": "",
-      "equipmentType": "3",
-      "manufactor": "1",
-      "serialNumber": "4334343434",
-      "model": "43434",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021",
-      "employee": "2"
-    },
-    {
       "id": "19v7Ixq",
       "employees": "",
       "equipmentType": "2",
