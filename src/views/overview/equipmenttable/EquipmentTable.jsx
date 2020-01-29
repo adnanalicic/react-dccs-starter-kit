@@ -18,10 +18,7 @@ export default class EquipmentTable extends React.Component {
 
     let data = this.state.fullData;
     for (let filterName in filters) {
-      if (
-        filters[filterName] === "DEFAULT" ||
-        filters[filterName] === "please select"
-      ) {
+      if (filters[filterName] === null || filters[filterName] === "") {
         continue;
       }
       data = data.filter(function(equipmentItem) {

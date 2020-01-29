@@ -50,6 +50,26 @@
       "model": "dfvd",
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021"
+    },
+    {
+      "id": "cnKfvvR",
+      "employee": "",
+      "equipmentType": "",
+      "manufactor": "",
+      "serialNumber": "",
+      "model": "",
+      "invoiceDate": "",
+      "guarantee": ""
+    },
+    {
+      "id": "fU5xnJ5",
+      "employee": "1",
+      "equipmentType": "2",
+      "manufactor": "1",
+      "serialNumber": "test",
+      "model": "dfvdfvfv",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
     }
   ],
   "employee": [

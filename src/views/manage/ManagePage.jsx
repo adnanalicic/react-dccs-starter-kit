@@ -38,10 +38,29 @@ export default class ManageEquipmentPage extends React.Component {
   };
 
   saveEquipmentItemAction = event => {
-    equipmentService.saveEquipmentItem(this.state.equipment).then(() => {
-      this.props.history.push("/overview");
-      alert("data saved");
-    });
+    if (this.isFormValid()) {
+      equipmentService.saveEquipmentItem(this.state.equipment).then(() => {
+        this.props.history.push("/overview");
+        alert("data saved");
+      });
+    } else {
+      alert("there are some mandatory fields not filled");
+    }
+  };
+
+  isFormValid = () => {
+    if (
+      this.state.equipment.equipmentType &&
+      this.state.equipment.manufactor &&
+      this.state.equipment.serialNumber &&
+      this.state.equipment.invoiceDate &&
+      this.state.equipment.model
+    ) {
+      return true;
+    }
+    return false;
+
+    //this.state.equipment
   };
 
   deleteEquipmentItemAction = event => {

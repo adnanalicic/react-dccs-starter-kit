@@ -29,7 +29,7 @@ export default class DynamicSelect extends React.Component {
           value={this.props.value}
           name={this.props.name}
         >
-          <option value="DEFAULT">please select</option>
+          <option value={null}>{null}</option>
           {options}
         </select>
       </div>
