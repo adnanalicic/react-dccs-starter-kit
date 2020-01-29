@@ -65,6 +65,7 @@ export default class ManageEquipmentPage extends React.Component {
 
   deleteEquipmentItemAction = event => {
     equipmentService.deleteEquipmentItem(this.state.equipment).then(() => {
+      // FIXME: Should we have central place for managing history actions ?
       this.props.history.push("/overview");
       alert("data deleted");
     });
@@ -74,6 +75,7 @@ export default class ManageEquipmentPage extends React.Component {
     let deleteButton;
 
     if (this.state.equipment.id) {
+      // FIXME: We need security-config here :D
       deleteButton = (
         <input
           type="button"
@@ -83,6 +85,8 @@ export default class ManageEquipmentPage extends React.Component {
         />
       );
     }
+
+    // FIXME: ~100 lines needed only for JSX stuff... hmmm let's discuss
 
     return (
       <div className="form-container">

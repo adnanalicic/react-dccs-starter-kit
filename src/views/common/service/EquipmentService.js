@@ -47,4 +47,12 @@ class EquipmentService {
   }
 }
 
+/*
+  FIXME: Should we transform it into following according to our discussion or? :
+  class EquipmentServiceType {}
+  const equipmentService = new EquipmentServiceType();
+  export default equipmentService;
+
+ */
+
 export default new EquipmentService();

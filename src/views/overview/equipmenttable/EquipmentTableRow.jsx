@@ -1,5 +1,7 @@
 import React from "react";
 
+// FIXME: This doesn't make too much sense if it's component specific....looks weird from developer perspective...
+
 export default class EquipmentTableRow extends React.Component {
   render() {
     return (

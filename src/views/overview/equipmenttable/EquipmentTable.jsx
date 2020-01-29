@@ -9,6 +9,7 @@ export default class EquipmentTable extends React.Component {
     filters: {}
   };
 
+  // FIXME: This looks nasty and will have to be reworked, at least in TS time...
   filterTable = event => {
     let filters = this.state.filters;
     debugger;
@@ -21,6 +22,7 @@ export default class EquipmentTable extends React.Component {
       if (filters[filterName] === null || filters[filterName] === "") {
         continue;
       }
+      // FIXME: Big complexity ...O(n^m)...but it should be O(n)
       data = data.filter(function(equipmentItem) {
         return equipmentItem[filterName] === filters[filterName];
       });
@@ -28,6 +30,7 @@ export default class EquipmentTable extends React.Component {
     this.setState({ ...this.state, equipment: data });
   };
 
+  // FIXME: This method is deprecated...let's discuss how to solve it in different way...
   componentWillReceiveProps(props) {
     this.setState({
       equipment: props.data,
@@ -41,6 +44,7 @@ export default class EquipmentTable extends React.Component {
         <thead>
           <tr>
             <td>
+              {/* FIXME: */}
               <span></span>
             </td>
             <td>

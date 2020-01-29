@@ -1,7 +1,7 @@
 body {
   margin: 0;
 }
-
+/* FIXME: should we use camelCase or underscore pattern for class names ? What about first letter? */
 .App {
   text-align: center;
 }
