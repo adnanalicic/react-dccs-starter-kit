@@ -71,6 +71,19 @@ export default class ManageEquipmentPage extends React.Component {
   };
 
   render() {
+    let deleteButton;
+
+    if (this.state.equipment.id) {
+      deleteButton = (
+        <input
+          type="button"
+          value="Delete"
+          onClick={this.deleteEquipmentItemAction}
+          className="button-grey"
+        />
+      );
+    }
+
     return (
       <div className="form-container">
         <table>
@@ -157,14 +170,7 @@ export default class ManageEquipmentPage extends React.Component {
                   className="button"
                 />
               </td>
-              <td>
-                <input
-                  type="button"
-                  value="Delete"
-                  onClick={this.deleteEquipmentItemAction}
-                  className="button-grey"
-                />
-              </td>
+              <td>{deleteButton}</td>
             </tr>
           </tbody>
         </table>
