@@ -2,7 +2,7 @@
   "equipment": [
     {
       "id": "nTOO42u",
-      "employee": "",
+      "employee": "1",
       "equipmentType": "1",
       "manufactor": "1",
       "serialNumber": "wedwed",
@@ -39,6 +39,16 @@
       "model": "dfvdfvfv",
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021"
+    },
+    {
+      "id": "YJvop8X",
+      "employee": "2",
+      "equipmentType": "6",
+      "manufactor": "2",
+      "serialNumber": "dssdsd",
+      "model": "df",
+      "invoiceDate": "df",
+      "guarantee": "df"
     }
   ],
   "employee": [
