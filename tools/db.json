@@ -1,19 +1,8 @@
 {
   "equipment": [
     {
-      "id": "19v7Ixq",
-      "employees": "",
-      "equipmentType": "2",
-      "manufactor": "1",
-      "serialNumber": "erfefr",
-      "model": "erfe",
-      "invoiceDate": "erfefef",
-      "guarantee": "3",
-      "employee": "2"
-    },
-    {
       "id": "nTOO42u",
-      "employee": "1",
+      "employee": "",
       "equipmentType": "1",
       "manufactor": "1",
       "serialNumber": "wedwed",
@@ -40,26 +29,6 @@
       "model": "34",
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021"
-    },
-    {
-      "id": "Deae5Xp",
-      "employee": "3",
-      "equipmentType": "2",
-      "manufactor": "1",
-      "serialNumber": "dfvd",
-      "model": "dfvd",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
-    },
-    {
-      "id": "cnKfvvR",
-      "employee": "",
-      "equipmentType": "",
-      "manufactor": "",
-      "serialNumber": "",
-      "model": "",
-      "invoiceDate": "",
-      "guarantee": ""
     },
     {
       "id": "fU5xnJ5",
