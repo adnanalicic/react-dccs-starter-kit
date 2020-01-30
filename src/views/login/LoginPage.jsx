@@ -14,7 +14,6 @@ const LoginPage = ({history}) => {
             firebase
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
-                .then((result) => localStorage.setItem('authUser', JSON.stringify(result.user)))
                 .catch(err => alert(err));
             history.push('/');
         }

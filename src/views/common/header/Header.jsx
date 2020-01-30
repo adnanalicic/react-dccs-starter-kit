@@ -11,7 +11,6 @@ export default class Header extends React.Component {
 
     signOutHandler = () => {
         firebase.auth().signOut().catch(err => alert(err));
-        localStorage.removeItem('authUser');
     };
 
     render() {
