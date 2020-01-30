@@ -51,3 +51,60 @@ img {
   padding-top: 5px;
   margin-left: 10px;
 }
+
+.headerImg {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 25px;
+  background: white;
+}
+
+.headerImg:hover {
+   cursor: pointer;
+}
+
+.lookupWrapper {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  width: 150px;
+  height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  color: #1c1627;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 1px 2px 8px 0 rgba(12, 0, 51, 0.3);
+  outline: none;
+}
+
+.lookupWrapper div {
+  position: relative;
+  bottom: 8px;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 20px;
+}
+
+.lookupWrapper div p {
+  position: relative;
+  right: 30px;
+}
+
+.lookupWrapper div:hover {
+   background: #EEEEEE;
+   cursor: pointer;
+}
+
+.logOutIcon {
+  height: 14px;
+  position: relative;
+  top: 5px;
+  width: 17px;
+  color: #999999;
+}

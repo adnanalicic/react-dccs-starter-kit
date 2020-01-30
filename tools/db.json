@@ -1,14 +1,14 @@
 {
   "equipment": [
     {
-      "id": "nTOO42u",
       "employee": "",
       "equipmentType": "1",
-      "manufactor": "1",
-      "serialNumber": "wedwed",
-      "model": "1234",
+      "guarantee": "12.03.2021",
+      "id": "nTOO42u",
       "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "manufactor": "1",
+      "model": "1234",
+      "serialNumber": "wedwed"
     },
     {
       "id": "UMK52Lx",
@@ -21,24 +21,74 @@
       "guarantee": "12.03.2021"
     },
     {
-      "id": "cs9bPBd",
-      "employee": "3",
-      "equipmentType": "3",
-      "manufactor": "1",
-      "serialNumber": "vfvfgv",
-      "model": "34",
+      "employee": "1",
+      "equipmentType": "2",
+      "guarantee": "12.03.2021",
+      "id": "fU5xnJ5",
       "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "manufactor": "1",
+      "model": "dfvdfvfv",
+      "serialNumber": "test123"
     },
     {
-      "id": "fU5xnJ5",
+      "id": "bq0ZeGE",
+      "employee": "1",
+      "equipmentType": "1",
+      "manufactor": "1",
+      "serialNumber": "a",
+      "model": "a",
+      "invoiceDate": "a",
+      "guarantee": "a"
+    },
+    {
+      "id": "LqUYS_L",
+      "employee": "3",
+      "equipmentType": "1",
+      "manufactor": "1",
+      "serialNumber": "1",
+      "model": "1",
+      "invoiceDate": "1",
+      "guarantee": "1"
+    },
+    {
+      "id": "awl7Eww",
+      "employee": "2",
+      "equipmentType": "2",
+      "manufactor": "1",
+      "serialNumber": "1",
+      "model": "1",
+      "invoiceDate": "1",
+      "guarantee": "1"
+    },
+    {
+      "id": "51w0vKx",
+      "employee": "1",
+      "equipmentType": "1",
+      "manufactor": "2",
+      "serialNumber": "4",
+      "model": "4",
+      "invoiceDate": "4",
+      "guarantee": "4"
+    },
+    {
+      "id": "d3HP8bs",
+      "employee": "1",
+      "equipmentType": "2",
+      "manufactor": "2",
+      "serialNumber": "3",
+      "model": "3",
+      "invoiceDate": "3",
+      "guarantee": "3"
+    },
+    {
+      "id": "Hs0jwor",
       "employee": "1",
       "equipmentType": "2",
       "manufactor": "1",
-      "serialNumber": "test",
-      "model": "dfvdfvfv",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "serialNumber": "3",
+      "model": "2",
+      "invoiceDate": "3",
+      "guarantee": "3"
     }
   ],
   "employee": [
