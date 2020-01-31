@@ -19,7 +19,7 @@ export default class ManageEquipmentPage extends React.Component {
 
   constructor(props) {
     super(props);
-    let eqId = window.location.hash.substring(9);
+    let eqId = window.location.pathname.substring(8);
     if (eqId) {
       equipmentService
         .fetchEquipmentById(eqId)
