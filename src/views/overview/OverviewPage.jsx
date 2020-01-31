@@ -9,6 +9,10 @@ import "./overviewpage.css";
 // FIXME: Should we name it nicer? maybe InventoryOverviewComponent and InventoryFormComponent?..
 //  As you see both of them are inventory so should we put them into same package ?
 //  Does it make sense at all to have `manage` menu item since it's only `create` of inventory...hmmm
+
+/**
+ * Overview of equipment data.
+ */
 export default class OverviewPage extends React.Component {
   state = {
     equipment: []

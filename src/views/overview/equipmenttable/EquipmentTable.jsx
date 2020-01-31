@@ -12,7 +12,6 @@ export default class EquipmentTable extends React.Component {
   // FIXME: This looks nasty and will have to be reworked, at least in TS time...
   filterTable = event => {
     let filters = this.state.filters;
-    debugger;
     filters[event.target.name] =
       event.target.options[event.target.selectedIndex].text;
     this.setState({ ...this.state, filters: filters });

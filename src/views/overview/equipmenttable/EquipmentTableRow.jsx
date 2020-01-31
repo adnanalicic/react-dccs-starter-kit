@@ -1,6 +1,6 @@
 import React from "react";
 
-// FIXME: This doesn't make too much sense if it's component specific....looks weird from developer perspective...
+// FIXME: prebacimo sve parent componentu
 
 export default class EquipmentTableRow extends React.Component {
   render() {

@@ -5,6 +5,9 @@ import "./Header.css";
 import logo from "../../../assets/logo_dccs_white.png";
 
 // FIXME: Should we use Component if we're not using any method from lifecycle ?
+/**
+ * Holder component of all header related elements.
+ */
 export default class Header extends React.Component {
   render() {
     return (
@@ -26,9 +29,7 @@ export default class Header extends React.Component {
 
         */}
         <NavLink className="menuItem" exact to="/manage">
-          {/* FIXME: Looks like we don't need empty div ? Another question is what should be clickable whole area or only text? */}
           <div className="menuSelector"></div>
-          {/* FIXME: Should we think to collect translations at least into single file... */}
           <div className="menuText">Manage</div>
         </NavLink>
         <NavLink className="menuItem" exact to="/overview">

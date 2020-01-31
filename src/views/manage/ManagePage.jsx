@@ -4,6 +4,9 @@ import equipmentService from "../common/service/EquipmentService";
 
 import "./ManagePage.css";
 
+/**
+ * Manage equipment item page.
+ */
 export default class ManageEquipmentPage extends React.Component {
   state = {
     equipment: {
@@ -60,8 +63,6 @@ export default class ManageEquipmentPage extends React.Component {
       return true;
     }
     return false;
-
-    //this.state.equipment
   };
 
   deleteEquipmentItemAction = event => {
@@ -76,7 +77,6 @@ export default class ManageEquipmentPage extends React.Component {
     let deleteButton;
 
     if (this.state.equipment.id) {
-      // FIXME: We need security-config here :D
       deleteButton = (
         <input
           type="button"
@@ -86,8 +86,6 @@ export default class ManageEquipmentPage extends React.Component {
         />
       );
     }
-
-    // FIXME: ~100 lines needed only for JSX stuff... hmmm let's discuss
 
     return (
       <div className="formContainer">

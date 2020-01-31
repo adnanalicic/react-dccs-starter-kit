@@ -1,13 +1,20 @@
 import React from "react";
 import masterDataService from "../service/MasterDataService";
 
+/**
+ * Select input component with dynamic data fetched from REST API.
+ * @param  {String} name name of rest endpoint
+ * @param  {String} value preselected value
+ * @param  {Function} onChange event executed on select change
+ */
 export default class DynamicSelect extends React.Component {
   state = { items: [], selectedItem: null };
 
   constructor(params) {
     super(params);
-    this.updateStateAction = this.updateStateAction.bind(this);
-    masterDataService.fetchData(this.props.name, this.updateStateAction);
+    masterDataService
+      .fetchData(this.props.name)
+      .then(data => this.updateStateAction(data));
   }
 
   updateStateAction(data) {

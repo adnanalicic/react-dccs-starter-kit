@@ -7,18 +7,19 @@ import OverviewPage from "../overview/OverviewPage";
 
 import "./App.css";
 
-// FIXME: import ordering ? Should we at least put at list distinguish local and external imports, js and css.
-
-// FIXME: Should we document all exported classes, functions ? What about public methods ?
 // FIXME: Should we make some DesignDecisions regarding naming (Some suffixes would be nice...e.g. Component, Service, Store,...whatever) ?
+
+/**
+ * Application entry point.
+ *
+ */
 export default class App extends React.Component {
   render() {
     return (
       <div className="app">
         <HashRouter>
           <Header />
-          {/* FIXME: classNames and all others should be consistent...*/}
-          <div className="page-container">
+          <div className="pageContainer">
             <Switch>
               {/* FIXME: Should we think to collect all paths on single/multiple place/s (like we discussed) ? */}
               <Route path="/" exact component={StartPage} />
