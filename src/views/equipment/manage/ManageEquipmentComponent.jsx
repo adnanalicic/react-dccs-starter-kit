@@ -1,8 +1,9 @@
 import React from "react";
-import DynamicSelect from "../common/select/DynamicSelect";
-import equipmentService from "../common/service/EquipmentService";
+import DynamicSelect from "../../common/select/DynamicSelect";
+import equipmentService from "../../common/service/EquipmentService";
+import Router from "../../app/Router";
 
-import "./ManagePage.css";
+import "./ManageEquipmentComponent.css";
 
 /**
  * Manage equipment item page.
@@ -23,7 +24,7 @@ export default class ManageEquipmentPage extends React.Component {
 
   constructor(props) {
     super(props);
-    let eqId = window.location.hash.substring(9);
+    let eqId = window.location.hash.substring(12);
     if (eqId) {
       equipmentService
         .fetchEquipmentById(eqId)
@@ -44,7 +45,7 @@ export default class ManageEquipmentPage extends React.Component {
   saveEquipmentItemAction = event => {
     if (this.isFormValid()) {
       equipmentService.saveEquipmentItem(this.state.equipment).then(() => {
-        this.props.history.push("/overview");
+        this.props.history.push(Router.EQUIPMENT);
         alert("data saved");
       });
     } else {
@@ -67,8 +68,7 @@ export default class ManageEquipmentPage extends React.Component {
 
   deleteEquipmentItemAction = event => {
     equipmentService.deleteEquipmentItem(this.state.equipment).then(() => {
-      // FIXME: Should we have central place for managing history actions ?
-      this.props.history.push("/overview");
+      this.props.history.push(Router.OVERVIEW_PAGE);
       alert("data deleted");
     });
   };

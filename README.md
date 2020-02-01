@@ -21,6 +21,8 @@ Decisions
 
 5. FIXME: Should we use Component if we're not using any method from lifecycle ?
 
+- YES.
+
 6. {/_ FIXME: Should we think to collect translations at least into single file... _/}
 7. /\*
    FIXME: Should we transform it into following according to our discussion or? :

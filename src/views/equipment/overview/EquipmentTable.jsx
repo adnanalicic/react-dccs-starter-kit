@@ -1,6 +1,6 @@
 import React from "react";
-import EquipmentTableRow from "./EquipmentTableRow";
 import DynamicSelect from "../../common/select/DynamicSelect";
+import Router from "../../app/Router";
 
 export default class EquipmentTable extends React.Component {
   state = {
@@ -9,7 +9,10 @@ export default class EquipmentTable extends React.Component {
     filters: {}
   };
 
-  // FIXME: This looks nasty and will have to be reworked, at least in TS time...
+  editEquipmentAction = id => {
+    this.props.history.push(Router.MANAGE_PAGE + id);
+  };
+
   filterTable = event => {
     let filters = this.state.filters;
     filters[event.target.name] =
@@ -21,7 +24,6 @@ export default class EquipmentTable extends React.Component {
       if (filters[filterName] === null || filters[filterName] === "") {
         continue;
       }
-      // FIXME: Big complexity ...O(n^m)...but it should be O(n)
       data = data.filter(function(equipmentItem) {
         return equipmentItem[filterName] === filters[filterName];
       });
@@ -29,12 +31,36 @@ export default class EquipmentTable extends React.Component {
     this.setState({ ...this.state, equipment: data });
   };
 
-  // FIXME: This method is deprecated...let's discuss how to solve it in different way...
-  componentWillReceiveProps(props) {
-    this.setState({
-      equipment: props.data,
-      fullData: props.data
-    });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.data !== prevState.fullData) {
+      return { equipment: nextProps.data, fullData: nextProps.data };
+    }
+
+    return nextProps;
+  }
+
+  buildTableRow(item) {
+    return (
+      <tr key={item.id}>
+        <td>
+          <button
+            data-equipmentid={item.id}
+            onClick={event =>
+              this.props.editAction(event.target.dataset.equipmentid)
+            }
+          >
+            edit
+          </button>
+        </td>
+        <td>{item.employee}</td>
+        <td>{item.equipmentType}</td>
+        <td>{item.manufactor}</td>
+        <td>{item.model}</td>
+        <td>{item.serialNumber}</td>
+        <td>{item.invoiceDate}</td>
+        <td>{item.guarantee}</td>
+      </tr>
+    );
   }
 
   render() {
@@ -42,10 +68,7 @@ export default class EquipmentTable extends React.Component {
       <table className="equipmentTable">
         <thead>
           <tr>
-            <td>
-              {/* FIXME: */}
-              <span></span>
-            </td>
+            <td></td>
             <td>
               <span>Name</span>
               <DynamicSelect name="employee" onChange={this.filterTable} />
@@ -65,13 +88,7 @@ export default class EquipmentTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.equipment.map(item => (
-            <EquipmentTableRow
-              editAction={this.props.editAction}
-              key={item.id}
-              item={item}
-            />
-          ))}
+          {this.state.equipment.map(item => this.buildTableRow(item))}
         </tbody>
       </table>
     );
