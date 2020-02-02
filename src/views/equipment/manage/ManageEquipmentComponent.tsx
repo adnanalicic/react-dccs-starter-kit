@@ -1,14 +1,21 @@
 import React from "react";
 import DynamicSelect from "../../common/select/DynamicSelect";
 import equipmentService from "../../common/service/EquipmentService";
-import Router from "../../app/Router";
+import Router from "../../../common/Router";
+import { History, LocationState } from "history";
 
 import "./ManageEquipmentComponent.css";
+
+interface ManageEquipmentComponentProps {
+  history: History<LocationState>;
+}
 
 /**
  * Manage equipment item page.
  */
-export default class ManageEquipmentPage extends React.Component {
+export default class ManageEquipmentComponent extends React.Component<
+  ManageEquipmentComponentProps
+> {
   state = {
     equipment: {
       id: "",
@@ -22,7 +29,7 @@ export default class ManageEquipmentPage extends React.Component {
     }
   };
 
-  constructor(props) {
+  constructor(props: ManageEquipmentComponentProps) {
     super(props);
     let eqId = window.location.hash.substring(12);
     if (eqId) {
@@ -32,7 +39,7 @@ export default class ManageEquipmentPage extends React.Component {
     }
   }
 
-  handleChange = event => {
+  handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault();
     this.setState({
       equipment: {
@@ -42,7 +49,19 @@ export default class ManageEquipmentPage extends React.Component {
     });
   };
 
-  saveEquipmentItemAction = event => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    this.setState({
+      equipment: {
+        ...this.state.equipment,
+        [event.target.name]: event.target.value
+      }
+    });
+  };
+
+  saveEquipmentItemAction = (
+    event: React.MouseEvent<HTMLInputElement, MouseEvent>
+  ) => {
     if (this.isFormValid()) {
       equipmentService.saveEquipmentItem(this.state.equipment).then(() => {
         this.props.history.push(Router.EQUIPMENT);
@@ -66,9 +85,11 @@ export default class ManageEquipmentPage extends React.Component {
     return false;
   };
 
-  deleteEquipmentItemAction = event => {
+  deleteEquipmentItemAction = (
+    event: React.MouseEvent<HTMLInputElement, MouseEvent>
+  ) => {
     equipmentService.deleteEquipmentItem(this.state.equipment).then(() => {
-      this.props.history.push(Router.OVERVIEW_PAGE);
+      this.props.history.push(Router.EQUIPMENT);
       alert("data deleted");
     });
   };
@@ -108,7 +129,7 @@ export default class ManageEquipmentPage extends React.Component {
                 <DynamicSelect
                   name="employee"
                   value={this.state.equipment.employee}
-                  onChange={this.handleChange}
+                  onChange={this.handleSelectChange}
                 />
               </td>
               <td>
@@ -116,7 +137,7 @@ export default class ManageEquipmentPage extends React.Component {
                 <DynamicSelect
                   name="equipmentType"
                   value={this.state.equipment.equipmentType}
-                  onChange={this.handleChange}
+                  onChange={this.handleSelectChange}
                 />
               </td>
             </tr>
@@ -126,7 +147,7 @@ export default class ManageEquipmentPage extends React.Component {
                 <DynamicSelect
                   name="manufactor"
                   value={this.state.equipment.manufactor}
-                  onChange={this.handleChange}
+                  onChange={this.handleSelectChange}
                 />
               </td>
               <td></td>

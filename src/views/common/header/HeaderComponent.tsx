@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../../assets/logo_dccs_white.png";
-import Router from "../../app/Router";
+import Router from "../../../common/Router";
 
 /**
  * Holder component of all header related elements.

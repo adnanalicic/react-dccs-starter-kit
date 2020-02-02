@@ -1,20 +1,16 @@
 import React from "react";
 import DynamicSelect from "../../common/select/DynamicSelect";
-import Router from "../../app/Router";
+import { EquipmentType } from "../../common/types/EquipmentType";
 
-export default class EquipmentTable extends React.Component {
+export default class EquipmentTable extends React.Component<any> {
   state = {
     equipment: [],
     fullData: [],
     filters: {}
   };
 
-  editEquipmentAction = id => {
-    this.props.history.push(Router.MANAGE_PAGE + id);
-  };
-
-  filterTable = event => {
-    let filters = this.state.filters;
+  filterTable = (event: any) => {
+    let filters: any = this.state.filters;
     filters[event.target.name] =
       event.target.options[event.target.selectedIndex].text;
     this.setState({ ...this.state, filters: filters });
@@ -31,7 +27,7 @@ export default class EquipmentTable extends React.Component {
     this.setState({ ...this.state, equipment: data });
   };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps: any, prevState: any) {
     if (nextProps.data !== prevState.fullData) {
       return { equipment: nextProps.data, fullData: nextProps.data };
     }
@@ -39,13 +35,13 @@ export default class EquipmentTable extends React.Component {
     return nextProps;
   }
 
-  buildTableRow(item) {
+  buildTableRow(item: EquipmentType) {
     return (
       <tr key={item.id}>
         <td>
           <button
             data-equipmentid={item.id}
-            onClick={event =>
+            onClick={(event: any) =>
               this.props.editAction(event.target.dataset.equipmentid)
             }
           >

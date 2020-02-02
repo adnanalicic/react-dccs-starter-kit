@@ -1,3 +1,6 @@
+import { DynamicSelectDataItem } from "../types/DynamicSelectDataItem";
+import { EquipmentType } from "../types/EquipmentType";
+
 /**
  * Service class for interacting with equipment data REST API.
  */
@@ -12,7 +15,7 @@ class EquipmentService {
    * @param {String} id this is the identifier of an equipment item
    * @return {[Promise]} equipment item
    */
-  fetchEquipmentById(id) {
+  fetchEquipmentById(id: string) {
     return fetch(this.EQUIPMENT_SERVICE + "/" + id).then(data => data.json());
   }
 
@@ -28,16 +31,20 @@ class EquipmentService {
       fetch(this.EQUIPMENTTYPE_SERVICE).then(data => data.json())
     ]).then(result => {
       let equipment = result[0];
-      let manufactors = new Map(result[1].map(i => [i.id.toString(), i.value]));
-      let employees = new Map(result[2].map(i => [i.id.toString(), i.value]));
+      let manufactors = new Map(
+        result[1].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
+      );
+      let employees = new Map<string, string>(
+        result[2].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
+      );
       let equipmentType = new Map(
-        result[3].map(i => [i.id.toString(), i.value])
+        result[3].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
       );
 
-      equipment.map(el => {
-        el.employee = employees.get(el["employee"]);
-        el.manufactor = manufactors.get(el["manufactor"]);
-        el.equipmentType = equipmentType.get(el["equipmentType"]);
+      equipment.map((el: EquipmentType) => {
+        el.employee = employees.get(el.employee) as string;
+        el.manufactor = manufactors.get(el.manufactor) as string;
+        el.equipmentType = equipmentType.get(el.equipmentType) as string;
         return el;
       });
       return equipment;
@@ -49,7 +56,7 @@ class EquipmentService {
    * @param {[equipment]} given equipment
    * @return {[Promise]}
    */
-  saveEquipmentItem(equipment) {
+  saveEquipmentItem(equipment: EquipmentType) {
     return fetch(this.EQUIPMENT_SERVICE + "/" + (equipment.id || ""), {
       method: equipment.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
       headers: { "content-type": "application/json" },
@@ -62,7 +69,7 @@ class EquipmentService {
    * @param {[equipment]} given equipment
    * @return {[Promise]}
    */
-  deleteEquipmentItem(equipment) {
+  deleteEquipmentItem(equipment: EquipmentType) {
     return fetch(this.EQUIPMENT_SERVICE + "/" + equipment.id, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
