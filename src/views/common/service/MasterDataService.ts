@@ -1,3 +1,10 @@
+/** 
+  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+  Implemented 2020 by DCCS Tuzla.
+
+  @author: Adnan Alicic
+*/
+
 /**
  * Service class for interacting with master data REST API.
  */
@@ -18,4 +25,5 @@ class MasterDataService {
   }
 }
 
-export default new MasterDataService();
+const masterDataService = new MasterDataService();
+export default masterDataService;

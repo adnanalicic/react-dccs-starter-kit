@@ -3,13 +3,9 @@ import DynamicSelect from "../../common/select/DynamicSelect";
 import equipmentService from "../../common/service/EquipmentService";
 import Router from "../../../common/Router";
 import { History, LocationState } from "history";
+import EquipmentType from "../../common/types/EquipmentType";
 
 import "./ManageEquipmentComponent.css";
-import {
-  MasterDataElement,
-  EquipmentType
-} from "../../common/types/EquipmentType";
-import { number } from "prop-types";
 
 interface ManageEquipmentComponentProps {
   history: History<LocationState>;

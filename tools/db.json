@@ -1,43 +1,6 @@
 {
   "equipments": [
     {
-      "id": "nTOO42u",
-      "employeeId": "2",
-      "equipmentTypeId": "1",
-      "manufactorId": 1,
-      "serialNumber": "wedwed",
-      "model": "1234",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021",
-      "manufactor": {
-        "id": 1,
-        "value": "Lenovo"
-      },
-      "manufactorsId": "",
-      "employee": {
-        "id": 2,
-        "value": "Elbin Hasić"
-      }
-    },
-    {
-      "id": "UMK52Lx",
-      "employeeId": "3",
-      "equipmentTypeId": "7",
-      "manufactorId": 2,
-      "serialNumber": "fgbfgb",
-      "model": "fgb",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021",
-      "manufactor": {
-        "id": 2,
-        "value": "Dell"
-      },
-      "equipmentType": {
-        "id": 7,
-        "value": "Memory"
-      }
-    },
-    {
       "id": "cs9bPBd",
       "employeeId": "1",
       "equipmentTypeId": 3,

@@ -1,9 +1,13 @@
-export interface MasterDataElement {
-  id: number;
-  value: string;
-}
+/** 
+  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+  Implemented 2020 by DCCS Tuzla.
 
-export interface EquipmentType {
+  @author: Adnan Alicic
+*/
+
+import MasterDataElement from "./MasterDataElement";
+
+export default interface EquipmentType {
   id: string;
   employeeId: number;
   employee?: MasterDataElement;

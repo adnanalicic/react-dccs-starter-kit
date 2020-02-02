@@ -5,7 +5,7 @@ import EquipmentTable from "./EquipmentTable";
 import "./overviewpage.css";
 import Router from "../../../common/Router";
 import { History, LocationState } from "history";
-import { EquipmentType } from "../../common/types/EquipmentType";
+import EquipmentType from "../../common/types/EquipmentType";
 
 interface EquipmentOverviewComponentProps {
   history: History<LocationState>;

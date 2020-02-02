@@ -1,6 +1,6 @@
 import React from "react";
 import masterDataService from "../service/MasterDataService";
-import { MasterDataElement } from "../types/EquipmentType";
+import MasterDataElement from "../types/MasterDataElement";
 
 interface DynamicSelectProps {
   name: string;

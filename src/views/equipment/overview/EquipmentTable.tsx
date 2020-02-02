@@ -1,6 +1,6 @@
 import React from "react";
 import DynamicSelect from "../../common/select/DynamicSelect";
-import { EquipmentType } from "../../common/types/EquipmentType";
+import EquipmentType from "../../common/types/EquipmentType";
 
 interface EquipmentTableProps {
   editAction: (id: string) => void;
