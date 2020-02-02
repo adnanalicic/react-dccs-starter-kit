@@ -1,3 +1,10 @@
+/** 
+  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+  Implemented 2020 by DCCS Tuzla.
+
+  @author: Adnan Alicic
+*/
+
 import React from "react";
 import { Switch, Route, HashRouter } from "react-router-dom";
 import HeaderComponent from "../common/header/HeaderComponent";

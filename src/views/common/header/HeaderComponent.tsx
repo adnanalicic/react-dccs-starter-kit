@@ -1,9 +1,16 @@
+/** 
+  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+  Implemented 2020 by DCCS Tuzla.
+
+  @author: Adnan Alicic
+*/
+
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Router from "../../../common/Router";
 
 import "./Header.css";
 import logo from "../../../assets/logo_dccs_white.png";
-import Router from "../../../common/Router";
 
 /**
  * Holder component of all header related elements.
