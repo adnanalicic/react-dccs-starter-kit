@@ -5,16 +5,16 @@
   @author: Adnan Alicic
 */
 
-import MasterDataElement from "./MasterDataElement";
+import MasterDataElementType from "./MasterDataElementType";
 
 export default interface EquipmentType {
   id: string;
   employeeId: number;
-  employee?: MasterDataElement;
+  employee?: MasterDataElementType;
   equipmentTypeId: number;
-  equipmentType?: MasterDataElement;
+  equipmentType?: MasterDataElementType;
   manufactorId: number;
-  manufactor?: MasterDataElement;
+  manufactor?: MasterDataElementType;
   model: string;
   serialNumber: string;
   invoiceDate: string;

@@ -7,7 +7,7 @@
 
 import React from "react";
 import masterDataService from "../service/MasterDataService";
-import MasterDataElement from "../types/MasterDataElement";
+import MasterDataElementType from "../types/MasterDataElementType";
 
 interface DynamicSelectProps {
   name: string;
@@ -22,7 +22,9 @@ interface DynamicSelectProps {
  * @param  {String} value preselected value
  * @param  {Function} onChange event executed on select change
  */
-export default class DynamicSelect extends React.Component<DynamicSelectProps> {
+export default class DynamicSelectComponent extends React.Component<
+  DynamicSelectProps
+> {
   state = { items: [], selectedItem: null };
 
   constructor(props: DynamicSelectProps) {
@@ -32,12 +34,12 @@ export default class DynamicSelect extends React.Component<DynamicSelectProps> {
       .then(data => this.updateStateAction(data));
   }
 
-  updateStateAction(data: MasterDataElement) {
+  updateStateAction(data: MasterDataElementType) {
     this.setState({ items: data });
   }
 
   render() {
-    let options = this.state.items.map((data: MasterDataElement) => (
+    let options = this.state.items.map((data: MasterDataElementType) => (
       <option value={data.id} key={data.id}>
         {data.value}
       </option>

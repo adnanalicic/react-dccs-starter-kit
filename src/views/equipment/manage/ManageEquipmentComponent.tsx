@@ -6,7 +6,7 @@
 */
 
 import React from "react";
-import DynamicSelect from "../../common/select/DynamicSelect";
+import DynamicSelectComponent from "../../common/select/DynamicSelectComponent";
 import equipmentService from "../../common/service/EquipmentService";
 import Router from "../../../common/Router";
 import { History, LocationState } from "history";
@@ -132,7 +132,7 @@ export default class ManageEquipmentComponent extends React.Component<
             <tr>
               <td>
                 <span>Employee:</span>
-                <DynamicSelect
+                <DynamicSelectComponent
                   name="employeeId"
                   serviceName="employees"
                   value={this.state.equipment.employeeId}
@@ -141,7 +141,7 @@ export default class ManageEquipmentComponent extends React.Component<
               </td>
               <td>
                 <span>Equipment type: *</span>
-                <DynamicSelect
+                <DynamicSelectComponent
                   name="equipmentTypeId"
                   serviceName="equipmentTypes"
                   value={this.state.equipment.equipmentTypeId}
@@ -152,7 +152,7 @@ export default class ManageEquipmentComponent extends React.Component<
             <tr>
               <td>
                 <span>Manufactor: *</span>
-                <DynamicSelect
+                <DynamicSelectComponent
                   name="manufactorId"
                   serviceName="manufactors"
                   value={this.state.equipment.manufactorId}

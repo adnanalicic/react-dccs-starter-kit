@@ -5,7 +5,7 @@
   @author: Adnan Alicic
 */
 
-export default interface MasterDataElement {
+export default interface MasterDataElementType {
   id: number;
   value: string;
 }

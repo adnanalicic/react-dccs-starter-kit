@@ -6,7 +6,7 @@
 */
 
 import React from "react";
-import DynamicSelect from "../../common/select/DynamicSelect";
+import DynamicSelectComponent from "../../common/select/DynamicSelectComponent";
 import EquipmentType from "../../common/types/EquipmentType";
 
 interface EquipmentTableProps {
@@ -86,7 +86,7 @@ export default class EquipmentTable extends React.Component<
             <td></td>
             <td>
               <span>Name</span>
-              <DynamicSelect
+              <DynamicSelectComponent
                 name="employee"
                 serviceName="employees"
                 onChange={this.filterTable}
@@ -94,7 +94,7 @@ export default class EquipmentTable extends React.Component<
             </td>
             <td>
               <span>Type</span>
-              <DynamicSelect
+              <DynamicSelectComponent
                 name="equipmentType"
                 serviceName="equipmentTypes"
                 onChange={this.filterTable}
@@ -102,7 +102,7 @@ export default class EquipmentTable extends React.Component<
             </td>
             <td>
               <span>Manufactor</span>
-              <DynamicSelect
+              <DynamicSelectComponent
                 name="manufactor"
                 serviceName="manufactors"
                 onChange={this.filterTable}

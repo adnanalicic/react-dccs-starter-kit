@@ -2,7 +2,7 @@
   "equipments": [
     {
       "id": "cs9bPBd",
-      "employeeId": "1",
+      "employeeId": "",
       "equipmentTypeId": 3,
       "manufactorId": 1,
       "serialNumber": "vfvfgv",
@@ -10,8 +10,8 @@
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021",
       "employee": {
-        "id": 3,
-        "value": "Mahir Nukić"
+        "id": 1,
+        "value": "Adan Agić"
       },
       "equipmentType": {
         "id": 3,
