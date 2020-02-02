@@ -15,7 +15,7 @@ export default class HeaderComponent extends React.Component {
         <NavLink className="logo" exact to={Router.START}>
           <img src={logo} height="35px" className="logo" alt="" />
         </NavLink>
-        <NavLink className="menu-item" exact to={Router.EQUIPMENT_MANAGE}>
+        <NavLink className="menu-item" exact to={Router.EQUIPMENT_MANAGE_NEW}>
           Manage
         </NavLink>
         <NavLink className="menu-item" exact to={Router.EQUIPMENT}>

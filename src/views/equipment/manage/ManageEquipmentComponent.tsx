@@ -32,7 +32,7 @@ export default class ManageEquipmentComponent extends React.Component<
   constructor(props: ManageEquipmentComponentProps) {
     super(props);
     let eqId = window.location.hash.substring(12);
-    if (eqId) {
+    if (eqId && eqId !== "new") {
       equipmentService
         .fetchEquipmentById(eqId)
         .then(data => this.setState({ equipment: data }));
