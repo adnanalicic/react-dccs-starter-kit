@@ -1,14 +1,13 @@
-import { DynamicSelectDataItem } from "../types/DynamicSelectDataItem";
 import { EquipmentType } from "../types/EquipmentType";
 
 /**
  * Service class for interacting with equipment data REST API.
  */
 class EquipmentService {
-  EQUIPMENT_SERVICE = "http://localhost:3001/equipment";
-  MANUFACTORS_SERVICE = "http://localhost:3001/manufactor";
-  EMPLOYEES_SERVICE = "http://localhost:3001/employee";
-  EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentType";
+  EQUIPMENT_SERVICE = "http://localhost:3001/equipments";
+  MANUFACTORS_SERVICE = "http://localhost:3001/manufactors";
+  EMPLOYEES_SERVICE = "http://localhost:3001/employees";
+  EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentTypes";
 
   /**
    * Retrieves equipment item by it's identifier.
@@ -16,7 +15,11 @@ class EquipmentService {
    * @return {[Promise]} equipment item
    */
   fetchEquipmentById(id: string) {
-    return fetch(this.EQUIPMENT_SERVICE + "/" + id).then(data => data.json());
+    return fetch(
+      "http://localhost:3001/equipments/" +
+        id +
+        "?_expand=employee&_expand=equipmentType&_expand=manufactor"
+    ).then(data => data.json());
   }
 
   /**
@@ -24,31 +27,9 @@ class EquipmentService {
    * @return {[Promise]} equipment items
    */
   fetchEquipment() {
-    return Promise.all([
-      fetch(this.EQUIPMENT_SERVICE).then(data => data.json()),
-      fetch(this.MANUFACTORS_SERVICE).then(data => data.json()),
-      fetch(this.EMPLOYEES_SERVICE).then(data => data.json()),
-      fetch(this.EQUIPMENTTYPE_SERVICE).then(data => data.json())
-    ]).then(result => {
-      let equipment = result[0];
-      let manufactors = new Map(
-        result[1].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
-      );
-      let employees = new Map<string, string>(
-        result[2].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
-      );
-      let equipmentType = new Map(
-        result[3].map((i: DynamicSelectDataItem) => [i.id.toString(), i.value])
-      );
-
-      equipment.map((el: EquipmentType) => {
-        el.employee = employees.get(el.employee) as string;
-        el.manufactor = manufactors.get(el.manufactor) as string;
-        el.equipmentType = equipmentType.get(el.equipmentType) as string;
-        return el;
-      });
-      return equipment;
-    });
+    return fetch(
+      "http://localhost:3001/equipments/?_expand=employee&_expand=equipmentType&_expand=manufactor"
+    ).then(data => data.json());
   }
 
   /**

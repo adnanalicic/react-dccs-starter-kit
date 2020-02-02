@@ -1,7 +1,6 @@
 import React from "react";
 import DynamicSelect from "../../common/select/DynamicSelect";
 import { EquipmentType } from "../../common/types/EquipmentType";
-import { string } from "prop-types";
 
 interface EquipmentTableProps {
   editAction: (id: string) => void;
@@ -34,8 +33,9 @@ export default class EquipmentTable extends React.Component<
       if (filters[filterName] === null || filters[filterName] === "") {
         continue;
       }
+      debugger;
       data = data.filter(function(equipmentItem) {
-        return equipmentItem[filterName] === filters[filterName];
+        return equipmentItem[filterName]["value"] === filters[filterName];
       });
     }
     this.setState({ ...this.state, equipment: data });
@@ -58,9 +58,11 @@ export default class EquipmentTable extends React.Component<
         <td>
           <button onClick={() => this.props.editAction(item.id)}>edit</button>
         </td>
-        <td>{item.employee}</td>
-        <td>{item.equipmentType}</td>
-        <td>{item.manufactor}</td>
+        <td>{item.employee !== undefined ? item.employee.value : ""}</td>
+        <td>
+          {item.equipmentType !== undefined ? item.equipmentType.value : ""}
+        </td>
+        <td>{item.manufactor !== undefined ? item.manufactor.value : ""}</td>
         <td>{item.model}</td>
         <td>{item.serialNumber}</td>
         <td>{item.invoiceDate}</td>
@@ -77,15 +79,27 @@ export default class EquipmentTable extends React.Component<
             <td></td>
             <td>
               <span>Name</span>
-              <DynamicSelect name="employee" onChange={this.filterTable} />
+              <DynamicSelect
+                name="employee"
+                serviceName="employees"
+                onChange={this.filterTable}
+              />
             </td>
             <td>
               <span>Type</span>
-              <DynamicSelect name="equipmentType" onChange={this.filterTable} />
+              <DynamicSelect
+                name="equipmentType"
+                serviceName="equipmentTypes"
+                onChange={this.filterTable}
+              />
             </td>
             <td>
               <span>Manufactor</span>
-              <DynamicSelect name="manufactor" onChange={this.filterTable} />
+              <DynamicSelect
+                name="manufactor"
+                serviceName="manufactors"
+                onChange={this.filterTable}
+              />
             </td>
             <td>Model</td>
             <td>Serial number</td>

@@ -1,40 +1,69 @@
 {
-  "equipment": [
+  "equipments": [
     {
       "id": "nTOO42u",
-      "employee": "",
-      "equipmentType": "1",
-      "manufactor": "1",
+      "employeeId": "2",
+      "equipmentTypeId": "1",
+      "manufactorId": 1,
       "serialNumber": "wedwed",
       "model": "1234",
       "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "guarantee": "12.03.2021",
+      "manufactor": {
+        "id": 1,
+        "value": "Lenovo"
+      },
+      "manufactorsId": "",
+      "employee": {
+        "id": 2,
+        "value": "Elbin Hasić"
+      }
     },
     {
       "id": "UMK52Lx",
-      "employee": "1",
-      "equipmentType": "2",
-      "manufactor": "2",
+      "employeeId": "3",
+      "equipmentTypeId": "7",
+      "manufactorId": 2,
       "serialNumber": "fgbfgb",
       "model": "fgb",
       "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "guarantee": "12.03.2021",
+      "manufactor": {
+        "id": 2,
+        "value": "Dell"
+      },
+      "equipmentType": {
+        "id": 7,
+        "value": "Memory"
+      }
     },
     {
       "id": "cs9bPBd",
-      "employee": "3",
-      "equipmentType": "3",
-      "manufactor": "1",
+      "employeeId": "1",
+      "equipmentTypeId": 3,
+      "manufactorId": 1,
       "serialNumber": "vfvfgv",
       "model": "34",
       "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "guarantee": "12.03.2021",
+      "employee": {
+        "id": 3,
+        "value": "Mahir Nukić"
+      },
+      "equipmentType": {
+        "id": 3,
+        "value": "Monitor"
+      },
+      "manufactor": {
+        "id": 1,
+        "value": "Lenovo"
+      }
     },
     {
       "id": "fU5xnJ5",
-      "employee": "1",
-      "equipmentType": "2",
-      "manufactor": "1",
+      "employeeId": 1,
+      "equipmentTypeId": 2,
+      "manufactorId": 1,
       "serialNumber": "test",
       "model": "dfvdfvfv",
       "invoiceDate": "12.03.2020",
@@ -42,16 +71,26 @@
     },
     {
       "id": "YJvop8X",
-      "employee": "2",
-      "equipmentType": "6",
-      "manufactor": "2",
+      "employeeId": 2,
+      "equipmentTypeId": 6,
+      "manufactorId": 2,
       "serialNumber": "dssdsd",
       "model": "df",
       "invoiceDate": "df",
       "guarantee": "df"
+    },
+    {
+      "id": "8WV9PsQ",
+      "employeeId": "1",
+      "equipmentTypeId": "2",
+      "manufactorId": "2",
+      "serialNumber": "h",
+      "model": "d",
+      "invoiceDate": "h",
+      "guarantee": "h"
     }
   ],
-  "employee": [
+  "employees": [
     {
       "id": 1,
       "value": "Adan Agić"
@@ -65,7 +104,7 @@
       "value": "Mahir Nukić"
     }
   ],
-  "equipmentType": [
+  "equipmentTypes": [
     {
       "id": 1,
       "value": "Laptop"
@@ -95,7 +134,7 @@
       "value": "Memory"
     }
   ],
-  "manufactor": [
+  "manufactors": [
     {
       "id": 1,
       "value": "Lenovo"

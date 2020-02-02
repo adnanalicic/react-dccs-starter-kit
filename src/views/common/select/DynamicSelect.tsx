@@ -1,10 +1,11 @@
 import React from "react";
 import masterDataService from "../service/MasterDataService";
-import { DynamicSelectDataItem } from "../types/DynamicSelectDataItem";
+import { MasterDataElement } from "../types/EquipmentType";
 
 interface DynamicSelectProps {
   name: string;
-  value?: string;
+  serviceName: string;
+  value?: number;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -20,16 +21,16 @@ export default class DynamicSelect extends React.Component<DynamicSelectProps> {
   constructor(props: DynamicSelectProps) {
     super(props);
     masterDataService
-      .fetchData(props.name)
+      .fetchData(props.serviceName)
       .then(data => this.updateStateAction(data));
   }
 
-  updateStateAction(data: DynamicSelectDataItem) {
+  updateStateAction(data: MasterDataElement) {
     this.setState({ items: data });
   }
 
   render() {
-    let options = this.state.items.map((data: DynamicSelectDataItem) => (
+    let options = this.state.items.map((data: MasterDataElement) => (
       <option value={data.id} key={data.id}>
         {data.value}
       </option>

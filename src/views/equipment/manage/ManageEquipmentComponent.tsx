@@ -5,23 +5,32 @@ import Router from "../../../common/Router";
 import { History, LocationState } from "history";
 
 import "./ManageEquipmentComponent.css";
+import {
+  MasterDataElement,
+  EquipmentType
+} from "../../common/types/EquipmentType";
+import { number } from "prop-types";
 
 interface ManageEquipmentComponentProps {
   history: History<LocationState>;
+}
+interface ManageEquipmentComponentState {
+  equipment: EquipmentType;
 }
 
 /**
  * Manage equipment item page.
  */
 export default class ManageEquipmentComponent extends React.Component<
-  ManageEquipmentComponentProps
+  ManageEquipmentComponentProps,
+  ManageEquipmentComponentState
 > {
-  state = {
+  state: ManageEquipmentComponentState = {
     equipment: {
       id: "",
-      employee: "",
-      equipmentType: "",
-      manufactor: "",
+      employeeId: 0,
+      equipmentTypeId: 0,
+      manufactorId: 0,
       serialNumber: "",
       model: "",
       invoiceDate: "",
@@ -33,9 +42,10 @@ export default class ManageEquipmentComponent extends React.Component<
     super(props);
     let eqId = window.location.hash.substring(12);
     if (eqId && eqId !== "new") {
-      equipmentService
-        .fetchEquipmentById(eqId)
-        .then(data => this.setState({ equipment: data }));
+      equipmentService.fetchEquipmentById(eqId).then((data: EquipmentType) => {
+        debugger;
+        this.setState({ equipment: data });
+      });
     }
   }
 
@@ -49,6 +59,7 @@ export default class ManageEquipmentComponent extends React.Component<
         [event.target.name]: event.target.value
       }
     });
+    console.log(this.state);
   };
 
   saveEquipmentItemAction = (
@@ -66,8 +77,8 @@ export default class ManageEquipmentComponent extends React.Component<
 
   isFormValid = () => {
     if (
-      this.state.equipment.equipmentType &&
-      this.state.equipment.manufactor &&
+      this.state.equipment.equipmentTypeId &&
+      this.state.equipment.manufactorId &&
       this.state.equipment.serialNumber &&
       this.state.equipment.invoiceDate &&
       this.state.equipment.model
@@ -119,16 +130,18 @@ export default class ManageEquipmentComponent extends React.Component<
               <td>
                 <span>Employee:</span>
                 <DynamicSelect
-                  name="employee"
-                  value={this.state.equipment.employee}
+                  name="employeeId"
+                  serviceName="employees"
+                  value={this.state.equipment.employeeId}
                   onChange={this.handleChange}
                 />
               </td>
               <td>
                 <span>Equipment type: *</span>
                 <DynamicSelect
-                  name="equipmentType"
-                  value={this.state.equipment.equipmentType}
+                  name="equipmentTypeId"
+                  serviceName="equipmentTypes"
+                  value={this.state.equipment.equipmentTypeId}
                   onChange={this.handleChange}
                 />
               </td>
@@ -137,8 +150,9 @@ export default class ManageEquipmentComponent extends React.Component<
               <td>
                 <span>Manufactor: *</span>
                 <DynamicSelect
-                  name="manufactor"
-                  value={this.state.equipment.manufactor}
+                  name="manufactorId"
+                  serviceName="manufactors"
+                  value={this.state.equipment.manufactorId}
                   onChange={this.handleChange}
                 />
               </td>
