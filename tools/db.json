@@ -1,28 +1,6 @@
 {
   "equipments": [
     {
-      "id": "cs9bPBd",
-      "employeeId": "",
-      "equipmentTypeId": 3,
-      "manufactorId": 1,
-      "serialNumber": "vfvfgv",
-      "model": "34",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021",
-      "employee": {
-        "id": 1,
-        "value": "Adan Agić"
-      },
-      "equipmentType": {
-        "id": 3,
-        "value": "Monitor"
-      },
-      "manufactor": {
-        "id": 1,
-        "value": "Lenovo"
-      }
-    },
-    {
       "id": "fU5xnJ5",
       "employeeId": 1,
       "equipmentTypeId": 2,
@@ -51,6 +29,16 @@
       "model": "d",
       "invoiceDate": "h",
       "guarantee": "h"
+    },
+    {
+      "id": "mvtZedN",
+      "employeeId": "1",
+      "equipmentTypeId": "2",
+      "manufactorId": "2",
+      "serialNumber": "S12345678",
+      "model": "dsdcsdc",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
     }
   ],
   "employees": [

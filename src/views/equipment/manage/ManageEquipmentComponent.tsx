@@ -116,97 +116,84 @@ export default class ManageEquipmentComponent extends React.Component<
 
     return (
       <div className="formContainer">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <input
-                  type="button"
-                  value="Save"
-                  onClick={this.saveEquipmentItemAction}
-                  className="button"
-                />
-                {deleteButton}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span>Employee:</span>
-                <DynamicSelectComponent
-                  name="employeeId"
-                  serviceName="employees"
-                  value={this.state.equipment.employeeId}
-                  onChange={this.handleChange}
-                />
-              </td>
-              <td>
-                <span>Equipment type: *</span>
-                <DynamicSelectComponent
-                  name="equipmentTypeId"
-                  serviceName="equipmentTypes"
-                  value={this.state.equipment.equipmentTypeId}
-                  onChange={this.handleChange}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span>Manufactor: *</span>
-                <DynamicSelectComponent
-                  name="manufactorId"
-                  serviceName="manufactors"
-                  value={this.state.equipment.manufactorId}
-                  onChange={this.handleChange}
-                />
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>
-                <div>Model: *</div>
-                <input
-                  type="text"
-                  name="model"
-                  value={this.state.equipment.model}
-                  onChange={this.handleChange}
-                  className="textfield"
-                />
-              </td>
-              <td>
-                <div>Serial number: *</div>
-                <input
-                  type="text"
-                  name="serialNumber"
-                  value={this.state.equipment.serialNumber}
-                  onChange={this.handleChange}
-                  className="textfield"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div>Invoice date: *</div>
-                <input
-                  type="text"
-                  name="invoiceDate"
-                  value={this.state.equipment.invoiceDate}
-                  onChange={this.handleChange}
-                  className="textfield"
-                />
-              </td>
-              <td>
-                <div>Warranty: *</div>
-                <input
-                  type="text"
-                  name="guarantee"
-                  value={this.state.equipment.guarantee}
-                  onChange={this.handleChange}
-                  className="textfield"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="formRow">
+          <input
+            type="button"
+            value="Save"
+            onClick={this.saveEquipmentItemAction}
+            className="button"
+          />
+          {deleteButton}
+        </div>
+        <div className="formRow">
+          <span>Employee:</span>
+          <DynamicSelectComponent
+            name="employeeId"
+            serviceName="employees"
+            value={this.state.equipment.employeeId}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div className="formRow">
+          <span>Equipment type: *</span>
+          <DynamicSelectComponent
+            name="equipmentTypeId"
+            serviceName="equipmentTypes"
+            value={this.state.equipment.equipmentTypeId}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div className="formRow">
+          <span>Manufactor: *</span>
+          <DynamicSelectComponent
+            name="manufactorId"
+            serviceName="manufactors"
+            value={this.state.equipment.manufactorId}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div className="formRow">
+          <span>Model: *</span>
+          <input
+            type="text"
+            name="model"
+            value={this.state.equipment.model}
+            onChange={this.handleChange}
+            className="textfield"
+          />
+        </div>
+        <div className="formRow">
+          <span>Serial number: *</span>
+          <input
+            type="text"
+            name="serialNumber"
+            value={this.state.equipment.serialNumber}
+            onChange={this.handleChange}
+            className="textfield"
+          />
+        </div>
+        <div>
+          <div className="formRow">
+            <span>Invoice date: *</span>
+            <input
+              type="text"
+              name="invoiceDate"
+              value={this.state.equipment.invoiceDate}
+              onChange={this.handleChange}
+              className="textfield"
+            />
+          </div>
+          <div className="formRow">
+            <span>Warranty: *</span>
+            <input
+              type="text"
+              name="guarantee"
+              value={this.state.equipment.guarantee}
+              onChange={this.handleChange}
+              className="textfield"
+            />
+          </div>
+        </div>
       </div>
     );
   }

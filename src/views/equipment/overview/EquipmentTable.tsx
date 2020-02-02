@@ -40,7 +40,6 @@ export default class EquipmentTable extends React.Component<
       if (filters[filterName] === null || filters[filterName] === "") {
         continue;
       }
-      debugger;
       data = data.filter(function(equipmentItem) {
         return equipmentItem[filterName]["value"] === filters[filterName];
       });
