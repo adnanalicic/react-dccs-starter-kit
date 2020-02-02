@@ -1,15 +1,29 @@
 import React from "react";
 import DynamicSelect from "../../common/select/DynamicSelect";
 import { EquipmentType } from "../../common/types/EquipmentType";
+import { string } from "prop-types";
 
-export default class EquipmentTable extends React.Component<any> {
+interface EquipmentTableProps {
+  editAction: (id: string) => void;
+  data: EquipmentType[];
+}
+interface EquipmentTableState {
+  fullData: EquipmentType[];
+}
+
+interface TableFilter {
+  [key: string]: string;
+}
+export default class EquipmentTable extends React.Component<
+  EquipmentTableProps
+> {
   state = {
     equipment: [],
     fullData: [],
-    filters: {}
+    filters: Array<TableFilter>()
   };
 
-  filterTable = (event: any) => {
+  filterTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
     let filters: any = this.state.filters;
     filters[event.target.name] =
       event.target.options[event.target.selectedIndex].text;
@@ -27,7 +41,10 @@ export default class EquipmentTable extends React.Component<any> {
     this.setState({ ...this.state, equipment: data });
   };
 
-  static getDerivedStateFromProps(nextProps: any, prevState: any) {
+  static getDerivedStateFromProps(
+    nextProps: EquipmentTableProps,
+    prevState: EquipmentTableState
+  ) {
     if (nextProps.data !== prevState.fullData) {
       return { equipment: nextProps.data, fullData: nextProps.data };
     }
@@ -39,14 +56,7 @@ export default class EquipmentTable extends React.Component<any> {
     return (
       <tr key={item.id}>
         <td>
-          <button
-            data-equipmentid={item.id}
-            onClick={(event: any) =>
-              this.props.editAction(event.target.dataset.equipmentid)
-            }
-          >
-            edit
-          </button>
+          <button onClick={() => this.props.editAction(item.id)}>edit</button>
         </td>
         <td>{item.employee}</td>
         <td>{item.equipmentType}</td>

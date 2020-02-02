@@ -39,17 +39,9 @@ export default class ManageEquipmentComponent extends React.Component<
     }
   }
 
-  handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    event.preventDefault();
-    this.setState({
-      equipment: {
-        ...this.state.equipment,
-        [event.target.name]: event.target.value
-      }
-    });
-  };
-
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     event.preventDefault();
     this.setState({
       equipment: {
@@ -129,7 +121,7 @@ export default class ManageEquipmentComponent extends React.Component<
                 <DynamicSelect
                   name="employee"
                   value={this.state.equipment.employee}
-                  onChange={this.handleSelectChange}
+                  onChange={this.handleChange}
                 />
               </td>
               <td>
@@ -137,7 +129,7 @@ export default class ManageEquipmentComponent extends React.Component<
                 <DynamicSelect
                   name="equipmentType"
                   value={this.state.equipment.equipmentType}
-                  onChange={this.handleSelectChange}
+                  onChange={this.handleChange}
                 />
               </td>
             </tr>
@@ -147,7 +139,7 @@ export default class ManageEquipmentComponent extends React.Component<
                 <DynamicSelect
                   name="manufactor"
                   value={this.state.equipment.manufactor}
-                  onChange={this.handleSelectChange}
+                  onChange={this.handleChange}
                 />
               </td>
               <td></td>
