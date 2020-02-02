@@ -8,6 +8,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Router from "../../../common/Router";
+import { Translation } from "../../../common/Translation";
 
 import "./Header.css";
 import logo from "../../../assets/logo_dccs_white.png";
@@ -23,10 +24,10 @@ export default class HeaderComponent extends React.Component {
           <img src={logo} height="35px" className="logo" alt="" />
         </NavLink>
         <NavLink className="menu-item" exact to={Router.EQUIPMENT_MANAGE_NEW}>
-          Manage
+          {Translation.HEADER_COMPONENT_MENU_MANAGE}
         </NavLink>
         <NavLink className="menu-item" exact to={Router.EQUIPMENT}>
-          Overview
+          {Translation.HEADER_COMPONENT_MENU_OVERVIEW}
         </NavLink>
       </div>
     );
