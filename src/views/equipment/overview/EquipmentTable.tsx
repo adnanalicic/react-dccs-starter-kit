@@ -26,24 +26,27 @@ export default class EquipmentTable extends React.Component<
   state = {
     equipment: [],
     fullData: [],
-    filters: Array<TableFilter>()
+    filters: new Map<string, string>()
   };
 
   filterTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    let filters: any = this.state.filters;
-    filters[event.target.name] =
-      event.target.options[event.target.selectedIndex].text;
+    let filters: Map<string, string> = this.state.filters;
+    filters.set(
+      event.target.name,
+      event.target.options[event.target.selectedIndex].text
+    );
     this.setState({ ...this.state, filters: filters });
-
     let data = this.state.fullData;
-    for (let filterName in filters) {
-      if (filters[filterName] === null || filters[filterName] === "") {
-        continue;
+    filters.forEach((value: string, filterName: string) => {
+      console.log(filterName, value);
+      if (filters.get(filterName) === null || filters.get(filterName) === "") {
+        return;
       }
       data = data.filter(function(equipmentItem) {
-        return equipmentItem[filterName]["value"] === filters[filterName];
+        return equipmentItem[filterName]["value"] === filters.get(filterName);
       });
-    }
+    });
+
     this.setState({ ...this.state, equipment: data });
   };
 
