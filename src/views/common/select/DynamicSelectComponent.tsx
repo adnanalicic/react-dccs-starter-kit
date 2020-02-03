@@ -1,4 +1,4 @@
-/** 
+/**
   Copyright (c) 2020 DCCS Tuzla. All rights reserved.
   Implemented 2020 by DCCS Tuzla.
 
@@ -12,7 +12,7 @@ import MasterDataElementType from "../types/MasterDataElementType";
 interface DynamicSelectProps {
   name: string;
   serviceName: string;
-  value?: number;
+  value?: number | string;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 

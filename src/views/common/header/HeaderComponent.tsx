@@ -7,7 +7,7 @@
 
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Router from "../../../common/Router";
+import Router from "../../../common/RouterPaths";
 import { Translation } from "../../../common/Translation";
 
 import "./Header.css";

@@ -1,77 +1,100 @@
-/** 
-  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
-  Implemented 2020 by DCCS Tuzla.
+/**
+ Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+ Implemented 2020 by DCCS Tuzla.
 
-  @author: Adnan Alicic
-*/
+ @author: Adnan Alicic
+ */
 
-import React from "react";
-import DynamicSelectComponent from "../../common/select/DynamicSelectComponent";
-import EquipmentType from "../../common/types/EquipmentType";
+import React, { Component, ReactNode } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { renderSelect } from '../../../common/componentUtils';
+import Router from '../../../common/RouterPaths';
+import EquipmentType from '../../common/types/EquipmentType';
 
-interface EquipmentTableProps {
-  editAction: (id: string) => void;
+interface EquipmentTableProps extends RouteComponentProps {
   data: EquipmentType[];
 }
+
+type FilterCriteriaType = { [key in keyof EquipmentType]: string };
+
 interface EquipmentTableState {
-  fullData: EquipmentType[];
+  filterCriteria: Partial<FilterCriteriaType>;
 }
 
-interface TableFilter {
-  [key: string]: string;
-}
-export default class EquipmentTable extends React.Component<
-  EquipmentTableProps
-> {
+class EquipmentTable extends Component<EquipmentTableProps, EquipmentTableState> {
   state = {
-    equipment: [],
-    fullData: [],
-    filters: new Map<string, string>()
+    filterCriteria: {}
   };
 
-  filterTable = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    let filters: Map<string, string> = this.state.filters;
-    filters.set(
-      event.target.name,
-      event.target.options[event.target.selectedIndex].text
-    );
-    this.setState({ ...this.state, filters: filters });
-    let data = this.state.fullData;
-    filters.forEach((value: string, filterName: string) => {
-      console.log(filterName, value);
-      if (filters.get(filterName) === null || filters.get(filterName) === "") {
-        return;
-      }
-      data = data.filter(function(equipmentItem) {
-        return equipmentItem[filterName]["value"] === filters.get(filterName);
-      });
-    });
-
-    this.setState({ ...this.state, equipment: data });
+  editAction = (id: string) => {
+    this.props.history.push(Router.EQUIPMENT + id);
   };
 
-  static getDerivedStateFromProps(
-    nextProps: EquipmentTableProps,
-    prevState: EquipmentTableState
-  ) {
-    if (nextProps.data !== prevState.fullData) {
-      return { equipment: nextProps.data, fullData: nextProps.data };
-    }
+  applyFilter = (name: string, value: string) => {
+    const {filterCriteria: oldFilterCriteria} = this.state;
+    this.setState({filterCriteria: {...oldFilterCriteria, [name]: value}});
+  };
 
-    return nextProps;
+  private _applyFilterCriteria(equipment: EquipmentType): boolean {
+    const filterCriteria: Partial<FilterCriteriaType> = this.state.filterCriteria;
+    const {employeeId, equipmentTypeId, manufactorId} = filterCriteria;
+    const {employee, equipmentType, manufactor} = equipment;
+
+    let valid = this._equals(employee && employee.id, employeeId);
+    valid = valid && this._equals(equipmentType && equipmentType.id, equipmentTypeId);
+    valid = valid && this._equals(manufactor && manufactor.id, manufactorId);
+    return valid;
   }
 
-  buildTableRow(item: EquipmentType) {
+  private _equals(val1?: string | number, val2?: string | number) {
+    return !val2 ? true : String(val1) === String(val2);
+  }
+
+  render() {
+    const filterCriteria: Partial<FilterCriteriaType> = this.state.filterCriteria;
+    return (
+      <table className="equipmentTable">
+        <thead>
+        <tr>
+          <td/>
+          <td>{renderSelect('Name', filterCriteria, 'employeeId', 'employees', this.applyFilter)}</td>
+          <td>{renderSelect('Type', filterCriteria, 'equipmentTypeId', 'equipmentTypes', this.applyFilter)}</td>
+          <td>{renderSelect('Manufactor', filterCriteria, 'manufactorId', 'manufactors', this.applyFilter)}</td>
+          <td>Model</td>
+          <td>Serial number</td>
+          <td>Invoice date</td>
+          <td>Warranty</td>
+        </tr>
+        </thead>
+        <tbody>
+        {this.renderBody()}
+        </tbody>
+      </table>
+    );
+  }
+
+  private renderBody() {
+    const {data} = this.props;
+    const nodes: ReactNode[] = [];
+    data.forEach(equipment => {
+      if (this._applyFilterCriteria(equipment)) {
+        nodes.push(this.renderRow(equipment));
+      }
+    });
+    return nodes;
+  }
+
+  renderRow(item: EquipmentType) {
     return (
       <tr key={item.id}>
         <td>
-          <button onClick={() => this.props.editAction(item.id)}>edit</button>
+          <button onClick={() => this.editAction(item.id)}>edit</button>
         </td>
-        <td>{item.employee !== undefined ? item.employee.value : ""}</td>
+        <td>{item.employee ? item.employee.value : ''}</td>
         <td>
-          {item.equipmentType !== undefined ? item.equipmentType.value : ""}
+          {item.equipmentType ? item.equipmentType.value : ''}
         </td>
-        <td>{item.manufactor !== undefined ? item.manufactor.value : ""}</td>
+        <td>{item.manufactor ? item.manufactor.value : ''}</td>
         <td>{item.model}</td>
         <td>{item.serialNumber}</td>
         <td>{item.invoiceDate}</td>
@@ -79,47 +102,6 @@ export default class EquipmentTable extends React.Component<
       </tr>
     );
   }
-
-  render() {
-    return (
-      <table className="equipmentTable">
-        <thead>
-          <tr>
-            <td></td>
-            <td>
-              <span>Name</span>
-              <DynamicSelectComponent
-                name="employee"
-                serviceName="employees"
-                onChange={this.filterTable}
-              />
-            </td>
-            <td>
-              <span>Type</span>
-              <DynamicSelectComponent
-                name="equipmentType"
-                serviceName="equipmentTypes"
-                onChange={this.filterTable}
-              />
-            </td>
-            <td>
-              <span>Manufactor</span>
-              <DynamicSelectComponent
-                name="manufactor"
-                serviceName="manufactors"
-                onChange={this.filterTable}
-              />
-            </td>
-            <td>Model</td>
-            <td>Serial number</td>
-            <td>Invoice date</td>
-            <td>Warranty</td>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.equipment.map(item => this.buildTableRow(item))}
-        </tbody>
-      </table>
-    );
-  }
 }
+
+export default withRouter(EquipmentTable);

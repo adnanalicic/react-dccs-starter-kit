@@ -1,18 +1,20 @@
-/** 
-  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
-  Implemented 2020 by DCCS Tuzla.
+/**
+ Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+ Implemented 2020 by DCCS Tuzla.
 
-  @author: Adnan Alicic
-*/
+ @author: Adnan Alicic
+ */
 
-import React from "react";
-import { Switch, Route, HashRouter } from "react-router-dom";
-import HeaderComponent from "../common/header/HeaderComponent";
-import StartPage from "../start/StartPage";
-import ManageEquipmentComponent from "../equipment/manage/ManageEquipmentComponent";
-import EquipmentOverviewComponent from "../equipment/overview/EquipmentOverviewComponent";
+import React from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import Router from '../../common/RouterPaths';
+import HeaderComponent from '../common/header/HeaderComponent';
+import EquipmentFormComponent from '../equipment/manage/EquipmentFormComponent';
+import ManageEquipmentComponent from '../equipment/manage/ManageEquipmentComponent';
+import EquipmentOverviewComponent from '../equipment/overview/EquipmentOverviewComponent';
+import StartPage from '../start/StartPage';
 
-import "./App.css";
+import './App.css';
 
 /**
  * Application entry point.
@@ -23,15 +25,13 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <HashRouter>
-          <HeaderComponent />
+          <HeaderComponent/>
           <div className="pageContainer">
             <Switch>
-              <Route path="/" exact component={StartPage} />
-              <Route
-                path="/equipment/:id"
-                component={ManageEquipmentComponent}
-              />
-              <Route path="/equipment" component={EquipmentOverviewComponent} />
+              <Route path={Router.START} exact component={StartPage}/>
+              <Route path={Router.EQUIPMENT_MANAGE_NEW} component={EquipmentFormComponent}/>
+              <Route path={Router.EQUIPMENT_MANAGE_EDIT} component={ManageEquipmentComponent}/>
+              <Route path={Router.EQUIPMENT} component={EquipmentOverviewComponent}/>
             </Switch>
           </div>
         </HashRouter>

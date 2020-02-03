@@ -1,29 +1,29 @@
-/** 
-  Copyright (c) 2020 DCCS Tuzla. All rights reserved.
-  Implemented 2020 by DCCS Tuzla.
+/**
+ Copyright (c) 2020 DCCS Tuzla. All rights reserved.
+ Implemented 2020 by DCCS Tuzla.
 
-  @author: Adnan Alicic
-*/
+ @author: Adnan Alicic
+ */
 
-import React from "react";
-import equipmentService from "../../common/service/EquipmentService";
-import EquipmentTable from "./EquipmentTable";
+import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router';
+import equipmentService from '../../common/service/EquipmentService';
+import EquipmentType from '../../common/types/EquipmentType';
+import EquipmentTable from './EquipmentTable';
 
-import "./overviewpage.css";
-import Router from "../../../common/Router";
-import { History, LocationState } from "history";
-import EquipmentType from "../../common/types/EquipmentType";
+import './EquipmentOverviewComponent.css';
 
-interface EquipmentOverviewComponentProps {
-  history: History<LocationState>;
+interface EquipmentOverviewComponentProps extends RouteComponentProps {
+}
+
+interface EquipmentOverviewComponentState {
+  equipment: EquipmentType[];
 }
 
 /**
  * Overview of equipment data.
  */
-export default class EquipmentOverviewComponent extends React.Component<
-  EquipmentOverviewComponentProps
-> {
+export default class EquipmentOverviewComponent extends Component<EquipmentOverviewComponentProps, EquipmentOverviewComponentState> {
   state = {
     equipment: []
   };
@@ -36,20 +36,10 @@ export default class EquipmentOverviewComponent extends React.Component<
   }
 
   updateStateAction = (data: EquipmentType[]) => {
-    this.setState({ equipment: data });
-  };
-
-  // FIXME: There is no need to make this action here...since #{@link EquipmentTable} is strict tot he equipment itself...
-  editEquipmentAction = (id: string) => {
-    this.props.history.push(Router.EQUIPMENT + id);
+    this.setState({equipment: data});
   };
 
   render() {
-    return (
-      <EquipmentTable
-        editAction={this.editEquipmentAction}
-        data={this.state.equipment}
-      />
-    );
+    return <EquipmentTable data={this.state.equipment}/>;
   }
 }
