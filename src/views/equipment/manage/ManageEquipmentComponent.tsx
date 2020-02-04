@@ -46,7 +46,6 @@ export default class ManageEquipmentComponent extends React.Component<
     let eqId = window.location.hash.substring(12);
     if (eqId && eqId !== "new") {
       equipmentService.fetchEquipmentById(eqId).then((data: EquipmentType) => {
-        debugger;
         this.setState({ equipment: data });
       });
     }
@@ -62,7 +61,6 @@ export default class ManageEquipmentComponent extends React.Component<
         [event.target.name]: event.target.value
       }
     });
-    console.log(this.state);
   };
 
   saveEquipmentItemAction = (

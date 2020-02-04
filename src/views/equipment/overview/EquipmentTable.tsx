@@ -35,7 +35,7 @@ export default class EquipmentTable extends React.Component<
       event.target.name,
       event.target.options[event.target.selectedIndex].text
     );
-    this.setState({ ...this.state, filters: filters });
+    this.setState({ filters: filters });
     let data = this.state.fullData;
     filters.forEach((value: string, filterName: string) => {
       console.log(filterName, value);
