@@ -14,7 +14,7 @@ import ManageEquipmentComponent from '../equipment/manage/ManageEquipmentCompone
 import EquipmentOverviewComponent from '../equipment/overview/EquipmentOverviewComponent';
 import StartPage from '../start/StartPage';
 
-import './App.css';
+import * as css from './App.scss';
 
 /**
  * Application entry point.
@@ -23,15 +23,15 @@ import './App.css';
 export default class App extends React.Component {
   render() {
     return (
-      <div className="app">
+      <div className={css.app}>
         <HashRouter>
-          <HeaderComponent/>
-          <div className="pageContainer">
+          <HeaderComponent />
+          <div className={css.pageContainer}>
             <Switch>
-              <Route path={Router.START} exact component={StartPage}/>
-              <Route path={Router.EQUIPMENT_MANAGE_NEW} component={EquipmentFormComponent}/>
-              <Route path={Router.EQUIPMENT_MANAGE_EDIT} component={ManageEquipmentComponent}/>
-              <Route path={Router.EQUIPMENT} component={EquipmentOverviewComponent}/>
+              <Route path={Router.START} exact={true} component={StartPage} />
+              <Route path={Router.EQUIPMENT_MANAGE_NEW} component={EquipmentFormComponent} />
+              <Route path={Router.EQUIPMENT_MANAGE_EDIT} component={ManageEquipmentComponent} />
+              <Route path={Router.EQUIPMENT} component={EquipmentOverviewComponent} />
             </Switch>
           </div>
         </HashRouter>

@@ -1,19 +1,19 @@
-/** 
+/**
   Copyright (c) 2020 DCCS Tuzla. All rights reserved.
   Implemented 2020 by DCCS Tuzla.
 
   @author: Adnan Alicic
 */
 
-import EquipmentType from "../types/EquipmentType";
+import EquipmentType from '../types/EquipmentType';
 
 /**
  * Service class for interacting with equipment data REST API.
  */
 class EquipmentService {
-  EQUIPMENT_SERVICE = "http://localhost:3001/equipments/";
+  EQUIPMENT_SERVICE = 'http://localhost:3001/equipments/';
   EQUIPMENT_QUERY =
-    "?_expand=employee&_expand=equipmentType&_expand=manufactor";
+    '?_expand=employee&_expand=equipmentType&_expand=manufactor';
   /**
    * Retrieves equipment item by it's identifier.
    * @param {String} id this is the identifier of an equipment item
@@ -41,9 +41,9 @@ class EquipmentService {
    * @return {[Promise]}
    */
   saveEquipmentItem(equipment: EquipmentType) {
-    return fetch(this.EQUIPMENT_SERVICE + (equipment.id || ""), {
-      method: equipment.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
-      headers: { "content-type": "application/json" },
+    return fetch(this.EQUIPMENT_SERVICE + (equipment.id || ''), {
+      method: equipment.id ? 'PUT' : 'POST', // POST for create, PUT to update when id already exists.
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(equipment)
     });
   }
@@ -55,8 +55,8 @@ class EquipmentService {
    */
   deleteEquipmentItem(equipment: EquipmentType) {
     return fetch(this.EQUIPMENT_SERVICE + equipment.id, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(equipment)
     });
   }

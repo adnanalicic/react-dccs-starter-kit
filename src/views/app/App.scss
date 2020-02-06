@@ -5,10 +5,18 @@
   @author: Adnan Alicic
 */
 
-body {
-  margin: 0;
+:global {
+  body {
+    margin: 0;
+  }
 }
 
 .app {
   text-align: center;
+
+  & .pageContainer {
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+  }
 }

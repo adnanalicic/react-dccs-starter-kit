@@ -11,10 +11,7 @@ import equipmentService from '../../common/service/EquipmentService';
 import EquipmentType from '../../common/types/EquipmentType';
 import EquipmentTable from './EquipmentTable';
 
-import './EquipmentOverviewComponent.css';
-
-interface EquipmentOverviewComponentProps extends RouteComponentProps {
-}
+interface EquipmentOverviewComponentProps extends RouteComponentProps {}
 
 interface EquipmentOverviewComponentState {
   equipment: EquipmentType[];
@@ -23,23 +20,24 @@ interface EquipmentOverviewComponentState {
 /**
  * Overview of equipment data.
  */
-export default class EquipmentOverviewComponent extends Component<EquipmentOverviewComponentProps, EquipmentOverviewComponentState> {
+export default class EquipmentOverviewComponent extends Component<
+  EquipmentOverviewComponentProps,
+  EquipmentOverviewComponentState
+> {
   state = {
     equipment: []
   };
 
   constructor(props: EquipmentOverviewComponentProps) {
     super(props);
-    equipmentService
-      .fetchEquipment()
-      .then(result => this.updateStateAction(result));
+    equipmentService.fetchEquipment().then((result) => this.updateStateAction(result));
   }
 
   updateStateAction = (data: EquipmentType[]) => {
-    this.setState({equipment: data});
+    this.setState({ equipment: data });
   };
 
   render() {
-    return <EquipmentTable data={this.state.equipment}/>;
+    return <EquipmentTable data={this.state.equipment} />;
   }
 }

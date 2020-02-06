@@ -9,10 +9,10 @@ import { RouteComponentProps } from 'react-router';
 import equipmentService from '../../common/service/EquipmentService';
 import EquipmentType from '../../common/types/EquipmentType';
 import EquipmentFormComponent from './EquipmentFormComponent';
-import './EquipmentFormComponent.css';
+import './EquipmentFormComponent.scss';
 
 interface UrlParamsType {
-  id: string
+  id: string;
 }
 
 /**
@@ -21,9 +21,9 @@ interface UrlParamsType {
 export default class ManageEquipmentComponent extends EquipmentFormComponent<UrlParamsType> {
   constructor(props: RouteComponentProps<UrlParamsType>) {
     super(props);
-    const {id} = props.match.params;
+    const { id } = props.match.params;
     equipmentService.fetchEquipmentById(id).then((data: EquipmentType) => {
-      this.setState({equipment: data});
+      this.setState({ equipment: data });
     });
   }
 }

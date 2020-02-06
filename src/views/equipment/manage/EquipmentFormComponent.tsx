@@ -10,7 +10,7 @@ import Router from '../../../common/RouterPaths';
 import equipmentService from '../../common/service/EquipmentService';
 import EquipmentType from '../../common/types/EquipmentType';
 
-import './EquipmentFormComponent.css';
+import * as css from './EquipmentFormComponent.scss';
 
 interface ManageEquipmentComponentState {
   equipment: EquipmentType;
@@ -19,15 +19,17 @@ interface ManageEquipmentComponentState {
 /**
  * Manage equipment item page.
  */
-export default class EquipmentFormComponent<T> extends Component<RouteComponentProps<T>,
-  ManageEquipmentComponentState> {
+export default class EquipmentFormComponent<T> extends Component<
+  RouteComponentProps<T>,
+  ManageEquipmentComponentState
+> {
   state: ManageEquipmentComponentState = {
-    equipment: Object.assign({})
+    equipment: {}
   };
 
   handleChange = (name: keyof EquipmentType, value: EquipmentType[keyof EquipmentType]) => {
-    const {equipment: oldModel} = this.state;
-    this.setState({equipment: {...oldModel, [name]: value}});
+    const { equipment: oldModel } = this.state;
+    this.setState({ equipment: { ...oldModel, [name]: value } });
   };
 
   saveEquipmentItemAction = () => {
@@ -62,20 +64,28 @@ export default class EquipmentFormComponent<T> extends Component<RouteComponentP
   };
 
   render() {
-    const {equipment} = this.state;
+    const { equipment } = this.state;
     return (
-      <div className="formContainer">
-        <Row>
+      <div className={css.formContainer}>
+        <Row className={css.formRow}>
           {renderButton('Save', this.saveEquipmentItemAction)}
           {equipment.id && renderButton('Delete', this.deleteEquipmentItemAction)}
         </Row>
-        <Row>{renderSelect('Employee: *', equipment, 'employeeId', 'employees', this.handleChange)}</Row>
-        <Row>{renderSelect('Equipment type: *', equipment, 'equipmentTypeId', 'equipmentTypes', this.handleChange)}</Row>
-        <Row>{renderSelect('Manufactor: *', equipment, 'manufactorId', 'manufactors', this.handleChange)}</Row>
-        <Row>{renderInput('Model: *', equipment, 'model', this.handleChange)}</Row>
-        <Row>{renderInput('Serial number: *', equipment, 'serialNumber', this.handleChange)}</Row>
-        <Row>{renderInput('Invoice date: *', equipment, 'invoiceDate', this.handleChange)}</Row>
-        <Row>{renderInput('Warranty: *', equipment, 'guarantee', this.handleChange)}</Row>
+        <Row className={css.formRow}>
+          {renderSelect('Employee: *', equipment, 'employeeId', 'employees', this.handleChange)}
+        </Row>
+        <Row className={css.formRow}>
+          {renderSelect('Equipment type: *', equipment, 'equipmentTypeId', 'equipmentTypes', this.handleChange)}
+        </Row>
+        <Row className={css.formRow}>
+          {renderSelect('Manufactor: *', equipment, 'manufactorId', 'manufactors', this.handleChange)}
+        </Row>
+        <Row className={css.formRow}>{renderInput('Model: *', equipment, 'model', this.handleChange)}</Row>
+        <Row className={css.formRow}>
+          {renderInput('Serial number: *', equipment, 'serialNumber', this.handleChange)}
+        </Row>
+        <Row className={css.formRow}>{renderInput('Invoice date: *', equipment, 'invoiceDate', this.handleChange)}</Row>
+        <Row className={css.formRow}>{renderInput('Warranty: *', equipment, 'guarantee', this.handleChange)}</Row>
       </div>
     );
   }

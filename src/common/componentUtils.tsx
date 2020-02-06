@@ -13,25 +13,23 @@ import DynamicSelectComponent from '../views/common/select/DynamicSelectComponen
  * @param name of the field in the model
  * @param onChange event that is going to be invoked when users enters something in the input field
  */
-export function renderInput<T, U extends keyof T & string>(label: string, model: T, name: U,
-                                                           onChange: (name: U, value: string) => void) {
-
+export function renderInput<T, U extends keyof T & string>(
+  label: string,
+  model: T,
+  name: U,
+  onChange: (name: U, value: string) => void
+) {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     event.preventDefault();
     onChange(name, event.target.value);
   }
 
-  return <div className="formRow">
-    <span>{label}</span>
-    <input
-      type="text"
-      name={name}
-      value={String(model[name] || '')}
-      onChange={handleChange}
-      className="textfield"
-    />
-  </div>;
-
+  return (
+    <div className="formRow">
+      <span>{label}</span>
+      <input type="text" name={name} value={String(model[name] || '')} onChange={handleChange} className="textfield" />
+    </div>
+  );
 }
 
 /**
@@ -42,24 +40,29 @@ export function renderInput<T, U extends keyof T & string>(label: string, model:
  * @param serviceName the name of service which will trigger request to get data
  * @param onChange event that is going to be invoked when users enters something in the input field
  */
-export function renderSelect<T, U extends keyof T & string>(label: string, model: T, name: U, serviceName: string,
-                                                            onChange: (name: U, value: string) => void) {
-
+export function renderSelect<T, U extends keyof T & string>(
+  label: string,
+  model: T,
+  name: U,
+  serviceName: string,
+  onChange: (name: U, value: string) => void
+) {
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     event.preventDefault();
     onChange(name, event.target.value);
   }
 
-  return <div>
-    <span>{label}</span>
-    <DynamicSelectComponent
-      name={name}
-      serviceName={serviceName}
-      value={String(model[name] || '')}
-      onChange={handleChange}
-    />
-  </div>;
-
+  return (
+    <div>
+      <span>{label}</span>
+      <DynamicSelectComponent
+        name={name}
+        serviceName={serviceName}
+        value={String(model[name] || '')}
+        onChange={handleChange}
+      />
+    </div>
+  );
 }
 
 /**
@@ -68,12 +71,7 @@ export function renderSelect<T, U extends keyof T & string>(label: string, model
  * @param onClick event that is going to be invoked when users clicks on the button itself
  */
 export function renderButton(label: string, onClick: () => void) {
-  return <input
-    type="button"
-    value={label}
-    onClick={onClick}
-    className="button"
-  />;
+  return <input type="button" value={label} onClick={onClick} className="button" />;
 }
 
 /**
@@ -81,8 +79,6 @@ export function renderButton(label: string, onClick: () => void) {
  * @param props of the component
  * @constructor
  */
-export function Row<P>(props: PropsWithChildren<{}>) {
-  return <div className="formRow">
-    {props.children}
-  </div>;
+export function Row<P>(props: PropsWithChildren<{ className?: string }>) {
+  return <div className={props.className}>{props.children}</div>;
 }

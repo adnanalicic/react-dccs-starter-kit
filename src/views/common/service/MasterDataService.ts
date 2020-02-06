@@ -1,4 +1,4 @@
-/** 
+/**
   Copyright (c) 2020 DCCS Tuzla. All rights reserved.
   Implemented 2020 by DCCS Tuzla.
 
@@ -9,11 +9,11 @@
  * Service class for interacting with master data REST API.
  */
 class MasterDataService {
-  SERVICE_BASE = "http://localhost:3001/";
-  EQUIPMENT_SERVICE = "http://localhost:3001/equipment";
-  MANUFACTORS_SERVICE = "http://localhost:3001/manufactor";
-  EMPLOYEES_SERVICE = "http://localhost:3001/employee";
-  EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentType";
+  SERVICE_BASE = 'http://localhost:3001/';
+  EQUIPMENT_SERVICE = 'http://localhost:3001/equipment';
+  MANUFACTORS_SERVICE = 'http://localhost:3001/manufactor';
+  EMPLOYEES_SERVICE = 'http://localhost:3001/employee';
+  EQUIPMENTTYPE_SERVICE = 'http://localhost:3001/equipmentType';
 
   /**
    * Retrieves master data for given data type
