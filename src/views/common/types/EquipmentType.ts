@@ -12,11 +12,11 @@ export default interface EquipmentType {
   employeeId: number;
   employee?: MasterDataElementType;
   equipmentTypeId: number;
-  equipmentType?: MasterDataElementType;
+  type?: MasterDataElementType;
   manufactorId: number;
   manufactor?: MasterDataElementType;
   model: string;
   serialNumber: string;
   invoiceDate: string;
-  guarantee: string;
+  warrantyDate: string;
 }

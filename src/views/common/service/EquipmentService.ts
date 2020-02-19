@@ -6,12 +6,13 @@
 */
 
 import EquipmentType from "../types/EquipmentType";
+import MasterDataElementType from "../types/MasterDataElementType";
 
 /**
  * Service class for interacting with equipment data REST API.
  */
 class EquipmentService {
-  EQUIPMENT_SERVICE = "http://localhost:3001/equipments/";
+  EQUIPMENT_SERVICE = "http://localhost:8080/rest/equipment/";
   EQUIPMENT_QUERY =
     "?_expand=employee&_expand=equipmentType&_expand=manufactor";
   /**
@@ -41,11 +42,27 @@ class EquipmentService {
    * @return {[Promise]}
    */
   saveEquipmentItem(equipment: EquipmentType) {
-    return fetch(this.EQUIPMENT_SERVICE + (equipment.id || ""), {
+    return fetch(this.EQUIPMENT_SERVICE + (equipment.id ? equipment.id : ""), {
       method: equipment.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(equipment)
+      body: this.prepareRequest(equipment)
     });
+  }
+
+  prepareRequest(equipment: EquipmentType) {
+    let manufactor: MasterDataElementType = Object.assign({});
+    manufactor.id = equipment.manufactorId;
+    equipment["manufactor"] = manufactor;
+
+    let type: MasterDataElementType = Object.assign({});
+    type.id = equipment.equipmentTypeId;
+    equipment["type"] = type;
+
+    let employee: MasterDataElementType = Object.assign({});
+    employee.id = equipment.employeeId;
+    equipment["employee"] = employee;
+
+    return JSON.stringify(equipment);
   }
 
   /**

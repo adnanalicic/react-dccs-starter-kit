@@ -9,11 +9,11 @@
  * Service class for interacting with master data REST API.
  */
 class MasterDataService {
-  SERVICE_BASE = "http://localhost:3001/";
-  EQUIPMENT_SERVICE = "http://localhost:3001/equipment";
-  MANUFACTORS_SERVICE = "http://localhost:3001/manufactor";
-  EMPLOYEES_SERVICE = "http://localhost:3001/employee";
-  EQUIPMENTTYPE_SERVICE = "http://localhost:3001/equipmentType";
+  SERVICE_BASE = "http://localhost:8080/rest/";
+  EQUIPMENT_SERVICE = this.SERVICE_BASE + "equipment";
+  MANUFACTORS_SERVICE = this.SERVICE_BASE + "manufactor";
+  EMPLOYEES_SERVICE = this.SERVICE_BASE + "employee";
+  EQUIPMENTTYPE_SERVICE = this.SERVICE_BASE + "equipmentType";
 
   /**
    * Retrieves master data for given data type

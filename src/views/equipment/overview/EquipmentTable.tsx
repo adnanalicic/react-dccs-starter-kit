@@ -5,11 +5,11 @@
  @author: Adnan Alicic
  */
 
-import React, { Component, ReactNode } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
-import { renderSelect } from '../../../common/componentUtils';
-import Router from '../../../common/RouterPaths';
-import EquipmentType from '../../common/types/EquipmentType';
+import React, { Component, ReactNode } from "react";
+import { RouteComponentProps, withRouter } from "react-router";
+import { renderSelect } from "../../../common/componentUtils";
+import Router from "../../../common/RouterPaths";
+import EquipmentType from "../../common/types/EquipmentType";
 
 interface EquipmentTableProps extends RouteComponentProps {
   data: EquipmentType[];
@@ -21,7 +21,10 @@ interface EquipmentTableState {
   filterCriteria: Partial<FilterCriteriaType>;
 }
 
-class EquipmentTable extends Component<EquipmentTableProps, EquipmentTableState> {
+class EquipmentTable extends Component<
+  EquipmentTableProps,
+  EquipmentTableState
+> {
   state = {
     filterCriteria: {}
   };
@@ -31,17 +34,18 @@ class EquipmentTable extends Component<EquipmentTableProps, EquipmentTableState>
   };
 
   applyFilter = (name: string, value: string) => {
-    const {filterCriteria: oldFilterCriteria} = this.state;
-    this.setState({filterCriteria: {...oldFilterCriteria, [name]: value}});
+    const { filterCriteria: oldFilterCriteria } = this.state;
+    this.setState({ filterCriteria: { ...oldFilterCriteria, [name]: value } });
   };
 
   private _applyFilterCriteria(equipment: EquipmentType): boolean {
-    const filterCriteria: Partial<FilterCriteriaType> = this.state.filterCriteria;
-    const {employeeId, equipmentTypeId, manufactorId} = filterCriteria;
-    const {employee, equipmentType, manufactor} = equipment;
+    const filterCriteria: Partial<FilterCriteriaType> = this.state
+      .filterCriteria;
+    const { employeeId, equipmentTypeId, manufactorId } = filterCriteria;
+    const { employee, type, manufactor } = equipment;
 
     let valid = this._equals(employee && employee.id, employeeId);
-    valid = valid && this._equals(equipmentType && equipmentType.id, equipmentTypeId);
+    valid = valid && this._equals(type && type.id, equipmentTypeId);
     valid = valid && this._equals(manufactor && manufactor.id, manufactorId);
     return valid;
   }
@@ -51,30 +55,53 @@ class EquipmentTable extends Component<EquipmentTableProps, EquipmentTableState>
   }
 
   render() {
-    const filterCriteria: Partial<FilterCriteriaType> = this.state.filterCriteria;
+    const filterCriteria: Partial<FilterCriteriaType> = this.state
+      .filterCriteria;
     return (
       <table className="equipmentTable">
         <thead>
-        <tr>
-          <td/>
-          <td>{renderSelect('Name', filterCriteria, 'employeeId', 'employees', this.applyFilter)}</td>
-          <td>{renderSelect('Type', filterCriteria, 'equipmentTypeId', 'equipmentTypes', this.applyFilter)}</td>
-          <td>{renderSelect('Manufactor', filterCriteria, 'manufactorId', 'manufactors', this.applyFilter)}</td>
-          <td>Model</td>
-          <td>Serial number</td>
-          <td>Invoice date</td>
-          <td>Warranty</td>
-        </tr>
+          <tr>
+            <td />
+            <td>
+              {renderSelect(
+                "Name",
+                filterCriteria,
+                "employeeId",
+                "employee",
+                this.applyFilter
+              )}
+            </td>
+            <td>
+              {renderSelect(
+                "Type",
+                filterCriteria,
+                "equipmentTypeId",
+                "equipmentType",
+                this.applyFilter
+              )}
+            </td>
+            <td>
+              {renderSelect(
+                "Manufactor",
+                filterCriteria,
+                "manufactorId",
+                "manufactor",
+                this.applyFilter
+              )}
+            </td>
+            <td>Model</td>
+            <td>Serial number</td>
+            <td>Invoice date</td>
+            <td>Warranty</td>
+          </tr>
         </thead>
-        <tbody>
-        {this.renderBody()}
-        </tbody>
+        <tbody>{this.renderBody()}</tbody>
       </table>
     );
   }
 
   private renderBody() {
-    const {data} = this.props;
+    const { data } = this.props;
     const nodes: ReactNode[] = [];
     data.forEach(equipment => {
       if (this._applyFilterCriteria(equipment)) {
@@ -90,15 +117,13 @@ class EquipmentTable extends Component<EquipmentTableProps, EquipmentTableState>
         <td>
           <button onClick={() => this.editAction(item.id)}>edit</button>
         </td>
-        <td>{item.employee ? item.employee.value : ''}</td>
-        <td>
-          {item.equipmentType ? item.equipmentType.value : ''}
-        </td>
-        <td>{item.manufactor ? item.manufactor.value : ''}</td>
+        <td>{item.employee ? item.employee.value : ""}</td>
+        <td>{item.type ? item.type.value : ""}</td>
+        <td>{item.manufactor ? item.manufactor.value : ""}</td>
         <td>{item.model}</td>
         <td>{item.serialNumber}</td>
         <td>{item.invoiceDate}</td>
-        <td>{item.guarantee}</td>
+        <td>{item.warrantyDate}</td>
       </tr>
     );
   }

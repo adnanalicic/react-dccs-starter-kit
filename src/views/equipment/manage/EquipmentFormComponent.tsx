@@ -3,14 +3,19 @@
  * Implemented 2020 by DCCS Tuzla.
  */
 
-import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router';
-import { renderButton, renderInput, renderSelect, Row } from '../../../common/componentUtils';
-import Router from '../../../common/RouterPaths';
-import equipmentService from '../../common/service/EquipmentService';
-import EquipmentType from '../../common/types/EquipmentType';
+import React, { Component } from "react";
+import { RouteComponentProps } from "react-router";
+import {
+  renderButton,
+  renderInput,
+  renderSelect,
+  Row
+} from "../../../common/componentUtils";
+import Router from "../../../common/RouterPaths";
+import equipmentService from "../../common/service/EquipmentService";
+import EquipmentType from "../../common/types/EquipmentType";
 
-import './EquipmentFormComponent.css';
+import "./EquipmentFormComponent.css";
 
 interface ManageEquipmentComponentState {
   equipment: EquipmentType;
@@ -19,25 +24,30 @@ interface ManageEquipmentComponentState {
 /**
  * Manage equipment item page.
  */
-export default class EquipmentFormComponent<T> extends Component<RouteComponentProps<T>,
-  ManageEquipmentComponentState> {
+export default class EquipmentFormComponent<T> extends Component<
+  RouteComponentProps<T>,
+  ManageEquipmentComponentState
+> {
   state: ManageEquipmentComponentState = {
     equipment: Object.assign({})
   };
 
-  handleChange = (name: keyof EquipmentType, value: EquipmentType[keyof EquipmentType]) => {
-    const {equipment: oldModel} = this.state;
-    this.setState({equipment: {...oldModel, [name]: value}});
+  handleChange = (
+    name: keyof EquipmentType,
+    value: EquipmentType[keyof EquipmentType]
+  ) => {
+    const { equipment: oldModel } = this.state;
+    this.setState({ equipment: { ...oldModel, [name]: value } });
   };
 
   saveEquipmentItemAction = () => {
     if (this.isFormValid()) {
       equipmentService.saveEquipmentItem(this.state.equipment).then(() => {
         this.props.history.push(Router.EQUIPMENT);
-        alert('data saved');
+        alert("data saved");
       });
     } else {
-      alert('there are some mandatory fields not filled');
+      alert("there are some mandatory fields not filled");
     }
   };
 
@@ -57,25 +67,73 @@ export default class EquipmentFormComponent<T> extends Component<RouteComponentP
   deleteEquipmentItemAction = () => {
     equipmentService.deleteEquipmentItem(this.state.equipment).then(() => {
       this.props.history.push(Router.EQUIPMENT);
-      alert('data deleted');
+      alert("data deleted");
     });
   };
 
   render() {
-    const {equipment} = this.state;
+    const { equipment } = this.state;
     return (
       <div className="formContainer">
         <Row>
-          {renderButton('Save', this.saveEquipmentItemAction)}
-          {equipment.id && renderButton('Delete', this.deleteEquipmentItemAction)}
+          {renderButton("Save", this.saveEquipmentItemAction)}
+          {equipment.id &&
+            renderButton("Delete", this.deleteEquipmentItemAction)}
         </Row>
-        <Row>{renderSelect('Employee: *', equipment, 'employeeId', 'employees', this.handleChange)}</Row>
-        <Row>{renderSelect('Equipment type: *', equipment, 'equipmentTypeId', 'equipmentTypes', this.handleChange)}</Row>
-        <Row>{renderSelect('Manufactor: *', equipment, 'manufactorId', 'manufactors', this.handleChange)}</Row>
-        <Row>{renderInput('Model: *', equipment, 'model', this.handleChange)}</Row>
-        <Row>{renderInput('Serial number: *', equipment, 'serialNumber', this.handleChange)}</Row>
-        <Row>{renderInput('Invoice date: *', equipment, 'invoiceDate', this.handleChange)}</Row>
-        <Row>{renderInput('Warranty: *', equipment, 'guarantee', this.handleChange)}</Row>
+        <Row>
+          {renderSelect(
+            "Employee: *",
+            equipment,
+            "employeeId",
+            "employee",
+            this.handleChange
+          )}
+        </Row>
+        <Row>
+          {renderSelect(
+            "Equipment type: *",
+            equipment,
+            "equipmentTypeId",
+            "equipmentType",
+            this.handleChange
+          )}
+        </Row>
+        <Row>
+          {renderSelect(
+            "Manufactor: *",
+            equipment,
+            "manufactorId",
+            "manufactor",
+            this.handleChange
+          )}
+        </Row>
+        <Row>
+          {renderInput("Model: *", equipment, "model", this.handleChange)}
+        </Row>
+        <Row>
+          {renderInput(
+            "Serial number: *",
+            equipment,
+            "serialNumber",
+            this.handleChange
+          )}
+        </Row>
+        <Row>
+          {renderInput(
+            "Invoice date: *",
+            equipment,
+            "invoiceDate",
+            this.handleChange
+          )}
+        </Row>
+        <Row>
+          {renderInput(
+            "Warranty: *",
+            equipment,
+            "warrantyDate",
+            this.handleChange
+          )}
+        </Row>
       </div>
     );
   }
